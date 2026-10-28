@@ -1,4 +1,4 @@
-/** Offline acceptance against a fresh `fig demo` installation. No model is called. */
+/** Offline acceptance against a fresh `ontothread demo` installation. No model is called. */
 import assert from 'node:assert/strict';
 import {mkdir} from 'node:fs/promises';
 import {chromium} from 'playwright';
@@ -73,7 +73,7 @@ try{
 
   const empty=await context();page=await empty.newPage();
   await page.route('**/v1/entities?*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify({entities:[],truncated:false,next_offset:null})}));
-  await page.goto(base);await text(page,'#corpus-notice','Run fig demo');
+  await page.goto(base);await text(page,'#corpus-notice','Run ontothread demo');
   assert.equal(await page.locator('#getting-started').getAttribute('open'),'');
   assert.equal(await page.locator('#ask-button').isDisabled(),true);assert.equal(await page.locator('#find-paths').isDisabled(),true);await empty.close();
 

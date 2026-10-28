@@ -17,3 +17,8 @@
 @media(max-width:1180px){.guide-grid{grid-template-columns:1fr;gap:14px}.guide-grid section+section{border-top:1px solid var(--line);padding-top:14px}}
 @media(max-width:650px){.navigation{flex-wrap:wrap;gap:14px;overflow:visible}.section-nav{display:flex;flex-wrap:wrap;gap:3px;width:100%}.section-nav .nav-link{font-size:11px;padding:7px 8px}.connection-bar{align-items:flex-start;flex-direction:column}.getting-started>summary{padding:16px 18px}.getting-started>summary span{display:block;margin:8px 0 0 16px;line-height:1.6}.guide-grid{padding:0 18px 18px}main,.research-column,.controls{min-width:0}.company-field{flex-wrap:wrap}.company-field select{max-width:100%}.review-panel{padding:18px}.workspace-tag{display:inline;font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* OntoThread product identity; OntologyPlus is the umbrella brand. */
+.brand-mark{font-size:29px;letter-spacing:-2px;text-align:center;flex-shrink:0;padding:6px 7px}.brand-copy{display:flex;flex-direction:column;gap:6px;min-width:0}.brand-copy strong{font-size:17px;font-weight:600;letter-spacing:-.4px}.brand-copy small{font-size:10px;font-weight:400;letter-spacing:.2px;color:#c2d0c7}.page-footer strong{font-weight:600;color:#66766a}
+@media(max-width:1180px) and (min-width:651px){.brand{gap:8px}.brand-mark{width:36px;height:38px;font-size:25px;padding:4px}.brand-copy strong{font-size:15px}.brand-copy small{font-size:9px}}
+@media(max-width:650px){.brand-mark{font-size:25px;padding:3px 5px}.brand-copy{gap:3px}.brand-copy strong{font-size:16px}.brand-copy small{font-size:10px}}

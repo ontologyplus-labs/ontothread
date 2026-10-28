@@ -42,7 +42,7 @@ async function loadCompanies(discoverDemo=false) {
     }
     $('demo-notice').hidden=!$('include-demo').checked;
     state.companies=data.entities;$('company').replaceChildren();
-    if(!data.entities.length){$('company').append(element('option',null,'No companies in the corpus'));state.generation++;state.selected=null;state.entities=new Map();state.relationships=[];state.documents=[];renderGraph();renderDocuments();resetEvidence();resetSearch();resetPaths();clearCandidates();$('ask-button').disabled=true;$('search-button').disabled=true;$('data-mode').textContent='EMPTY WORKSPACE';['relationship-count','counterparty-count','source-count'].forEach(id=>$(id).textContent='0');setNotice('corpus-notice','No companies are visible. Run fig demo and Refresh data, include an existing synthetic demo, or ingest SEC filings using the Get started guide.');$('getting-started').open=true;return;}
+    if(!data.entities.length){$('company').append(element('option',null,'No companies in the corpus'));state.generation++;state.selected=null;state.entities=new Map();state.relationships=[];state.documents=[];renderGraph();renderDocuments();resetEvidence();resetSearch();resetPaths();clearCandidates();$('ask-button').disabled=true;$('search-button').disabled=true;$('data-mode').textContent='EMPTY WORKSPACE';['relationship-count','counterparty-count','source-count'].forEach(id=>$(id).textContent='0');setNotice('corpus-notice','No companies are visible. Run ontothread demo and Refresh data, include an existing synthetic demo, or ingest SEC filings using the Get started guide.');$('getting-started').open=true;return;}
     const realIds=new Set(real.entities.map(company=>company.id));
     for(const company of data.entities){const option=element('option',null,company.canonical_name+(realIds.has(company.id)?'':' · synthetic'));option.value=company.id;$('company').append(option);}
     $('ask-button').disabled=false;
@@ -239,7 +239,7 @@ async function initializeWorkspace(){
     :'Rules read up to five matching passages. Optional OpenAI extraction needs OPENAI_API_KEY and FIG_LLM_MODEL in server configuration, then an API restart.';
   if(health.status==='rejected'){
     $('connection-status').textContent='Workspace needs attention';
-    $('connection-detail').textContent=health.reason.message+' Run fig migrate using the server configuration, then retry.';
+    $('connection-detail').textContent=health.reason.message+' Run ontothread migrate using the server configuration, then retry.';
     $('retry-connection').hidden=false;$('retry-connection').disabled=false;
     $('getting-started').open=true;return;
   }

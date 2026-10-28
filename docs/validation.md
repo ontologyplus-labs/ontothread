@@ -22,3 +22,22 @@ installed on this host, so image build and Compose orchestration were not execut
 Compose syntax and Docker build inputs were inspected, and database integration
 was verified with isolated native services. Python 3.13 and GitHub Actions execution
 are configured in CI but have not been run here. No GitHub repository was published.
+
+## OntoThread rebrand validation
+
+The standalone checkout and Python distribution are now `ontothread`, presented
+as **OntoThread by OntologyPlus**. The rebrand was validated with:
+
+- **243 tests passed with no skips**, including PostgreSQL and Neo4j integration.
+- The full offline Chromium acceptance workflow, plus inspection of the new
+  branding at 1440 px, 1024 px, and 390 px without page or navigation overflow.
+- A renamed wheel installed in a separate environment and exercised outside the
+  checkout: both `ontothread` and `fig` commands, migrations, API metadata, UI
+  assets, health, and the API explorer.
+- A copy of the original release's demo database: seeding through both commands
+  returned identical results and preserved every entity, document, text version,
+  passage, claim revision, and evidence ID.
+- Unchanged fixture/identity logic, configuration, API contract types, and MIT
+  attribution, plus the tracked-source release audit.
+
+Existing Docker, Python 3.13, and hosted-publication limitations above still apply.

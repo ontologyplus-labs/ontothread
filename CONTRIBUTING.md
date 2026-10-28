@@ -1,4 +1,4 @@
-# Contributing
+# Contributing to OntoThread
 
 Use Python 3.12+, create a virtual environment, and install `python -m pip install -e ".[dev]"`.
 Keep changes to evidence provenance, explicit review, ontology versions, and historical
@@ -53,3 +53,10 @@ Submit focused changes with a description and the checks run. Never include `.en
 source archives, databases, private reviewer returns, or model-response caches.
 Contributions are distributed under the MIT license. See `docs/releasing.md` for
 release packaging and validation.
+
+## Naming and compatibility
+
+Use **OntoThread** for the product and **OntologyPlus** for the umbrella brand.
+Financial intelligence graph describes the current capability. Keep `fig` imports,
+`FIG_*` configuration, `/v1` contracts, and persisted identity namespaces compatible.
+Historical source names and contributor attribution remain intact; see `docs/branding.md`.

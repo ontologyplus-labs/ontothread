@@ -1,4 +1,4 @@
-# Configuration and research workflow
+# Financial research with OntoThread
 
 ## Local settings
 
@@ -14,7 +14,7 @@ Do not mix the Python database URL with Docker-internal service names.
 | `SEC_USER_AGENT` | Empty; set application name and real contact before ingestion |
 | `FIG_SEC_CACHE_DIR` | `data/sec-cache`; coordinates local SEC request limits |
 | `OPENAI_API_KEY`, `FIG_LLM_MODEL` | Both required only for explicitly selected model extraction |
-| `FIG_NEO4J_URI`, `FIG_NEO4J_USER`, `FIG_NEO4J_PASSWORD` | Used by `fig project` |
+| `FIG_NEO4J_URI`, `FIG_NEO4J_USER`, `FIG_NEO4J_PASSWORD` | Used by `ontothread project` |
 
 No model is selected or called automatically. The browser reads only a boolean
 configuration status from `/v1/extraction/configuration`, never secret values.
@@ -23,7 +23,7 @@ it requires model credentials and can incur provider charges.
 
 ## Workflow
 
-1. Run `fig migrate` and `fig demo`, or ingest a bounded SEC filing set with the CLI.
+1. Run `ontothread migrate` and `ontothread demo`, or ingest a bounded SEC filing set with the CLI.
 2. Refresh the workspace. Demo-only installations automatically display fictional
    companies; once real companies exist, synthetic data is opt-in.
 3. Choose a company and explore accepted relationships or paths of one to three hops.
@@ -33,17 +33,17 @@ it requires model credentials and can incur provider charges.
 6. Find candidates with the rule extractor or explicitly selected model extractor.
    Inspect direction, identity, and the quote; provide a reviewer identity to accept
    or reject. Only acceptance adds an eligible claim to the graph.
-7. Run `fig project` after claim changes if you use Neo4j.
+7. Run `ontothread project` after claim changes if you use Neo4j.
 
-`fig seed-fixture` retains the minimal original test fixture. `fig demo` seeds the
+`ontothread seed-fixture` retains the minimal original test fixture. `ontothread demo` seeds the
 richer fictional walkthrough with deterministic IDs and preserves existing decisions.
 Demo claims are reviewed by `synthetic-demo-author`, not a real analyst.
 
 ## Recovery
 
 - **Database unavailable / migrations missing:** check the database URL and run
-  `fig migrate` using the same configuration as the API, then select Retry connection.
-- **Empty corpus:** run `fig demo` or ingest filings, then Refresh data.
+  `ontothread migrate` using the same configuration as the API, then select Retry connection.
+- **Empty corpus:** run `ontothread demo` or ingest filings, then Refresh data.
 - **Model option disabled:** configure both required variables and restart the API.
   Rule extraction remains available without either variable.
 - **No supported answer:** check registered names, accepted claims, and hop limits.
@@ -54,3 +54,10 @@ Demo claims are reviewed by `synthetic-demo-author`, not a real analyst.
 Stop the Python server with Ctrl-C. Preserve the local database and archive together;
 run migrations before reopening a workspace after upgrading. Shared network deployment
 requires an additional authenticated deployment design and is outside this release.
+
+## Compatibility after the rename
+
+Install the Python distribution as `ontothread` and use the `ontothread` command.
+The `fig` command remains an alias with the same arguments and behavior. Python
+imports such as `from fig.api import create_app`, the `fig.api:app` server target,
+and all `FIG_*` settings remain supported. See [branding and compatibility](branding.md).

@@ -3,9 +3,9 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "financial-intelligence-graph"
+name = "ontothread"
 version = "0.1.0"
-description = "Evidence-backed financial relationship graph"
+description = "Evidence-backed financial intelligence graphs with evolving ontologies"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -16,6 +16,7 @@ dependencies = ["fastapi==0.142.2", "uvicorn==0.54.0", "pydantic==2.13.5", "psyc
 dev = ["pytest==9.1.1", "httpx==0.28.1"]
 
 [project.scripts]
+ontothread = "fig.cli:main"
 fig = "fig.cli:main"
 
 [tool.setuptools.packages.find]

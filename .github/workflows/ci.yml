@@ -1,4 +1,4 @@
-name: Validate platform
+name: Validate OntoThread
 on:
   push:
   pull_request:
@@ -22,13 +22,15 @@ jobs:
       - name: Fresh installed-wheel demo
         shell: bash
         run: |
-          python -m venv "$RUNNER_TEMP/fig-wheel-env"
-          "$RUNNER_TEMP/fig-wheel-env/bin/python" -m pip install dist/*.whl
-          mkdir "$RUNNER_TEMP/fig-demo"
-          cd "$RUNNER_TEMP/fig-demo"
-          "$RUNNER_TEMP/fig-wheel-env/bin/fig" migrate
-          "$RUNNER_TEMP/fig-wheel-env/bin/fig" demo
-          "$RUNNER_TEMP/fig-wheel-env/bin/python" -c "from importlib.resources import files; assert files('fig').joinpath('web/index.html').is_file(); assert files('fig').joinpath('resources/010_claim_lifecycle.sql').is_file()"
+          python -m venv "$RUNNER_TEMP/ontothread-wheel-env"
+          "$RUNNER_TEMP/ontothread-wheel-env/bin/python" -m pip install dist/*.whl
+          mkdir "$RUNNER_TEMP/ontothread-demo"
+          cd "$RUNNER_TEMP/ontothread-demo"
+          "$RUNNER_TEMP/ontothread-wheel-env/bin/ontothread" migrate
+          "$RUNNER_TEMP/ontothread-wheel-env/bin/ontothread" demo
+          # Verify the original CLI alias against the same seeded workspace.
+          "$RUNNER_TEMP/ontothread-wheel-env/bin/fig" demo
+          "$RUNNER_TEMP/ontothread-wheel-env/bin/python" -c "from importlib.resources import files; assert files('fig').joinpath('web/index.html').is_file(); assert files('fig').joinpath('resources/010_claim_lifecycle.sql').is_file()"
   native-integration:
     runs-on: ubuntu-latest
     services:
@@ -76,9 +78,9 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Seed and serve the offline demo
         run: |
-          fig migrate
-          fig demo
-          uvicorn fig.api:app --host 127.0.0.1 --port 8000 > /tmp/fig-api.log 2>&1 &
+          ontothread migrate
+          ontothread demo
+          uvicorn fig.api:app --host 127.0.0.1 --port 8000 > /tmp/ontothread-api.log 2>&1 &
       - run: npm run test:browser
       - uses: actions/upload-artifact@v4
         if: failure()

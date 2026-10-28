@@ -9,7 +9,7 @@ from fig.store import Store
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Financial Intelligence Graph bootstrap")
+    parser = argparse.ArgumentParser(description="OntoThread by OntologyPlus — evidence-backed financial research")
     parser.add_argument("command",choices=["migrate","seed-fixture","demo","project","ingest-sec","ingest-history","ingest-filings","ingest-facts","review-claim","extract","evaluate"])
     parser.add_argument("--cik",default="1045810",help="SEC issuer CIK; default NVIDIA")
     parser.add_argument("--accession",help="Exact annual-filing accession; otherwise latest annual")

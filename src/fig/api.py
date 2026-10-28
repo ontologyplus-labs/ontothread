@@ -19,7 +19,7 @@ from fig.events import EventReview,EventReviewConflict
 def create_app(settings: Settings | None = None):
     settings = settings or Settings.from_env()
     store = Store(settings.database_url)
-    app = FastAPI(title="Financial Intelligence Graph", version="0.1.0")
+    app = FastAPI(title="OntoThread API", description="OntoThread by OntologyPlus: an evidence-backed financial intelligence graph with evolving ontologies.", version="0.1.0")
 
     @app.get("/v1/health")
     def health():

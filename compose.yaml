@@ -46,7 +46,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 20
-    command: ["sh", "-c", "fig migrate && uvicorn fig.api:app --host 0.0.0.0 --port 8000"]
+    command: ["sh", "-c", "ontothread migrate && uvicorn fig.api:app --host 0.0.0.0 --port 8000"]
 volumes:
   postgres_data:
   neo4j_data:

@@ -1,7 +1,8 @@
-# Architecture
+# OntoThread architecture
 
-The `fig` Python package contains the reusable engine. `fig.cli` supplies the `fig`
-entry point; `fig.api:create_app` exposes the existing `/v1` contracts and serves
+The `ontothread` distribution retains the `fig` import package for compatibility.
+`fig.cli` supplies the preferred `ontothread` command and the legacy `fig` alias.
+`fig.api:create_app` exposes the existing `/v1` contracts and serves
 packaged HTML, CSS, and JavaScript from the same process. No frontend build is needed.
 The OpenAPI schema at `/openapi.json` and interactive `/docs` describe request types.
 

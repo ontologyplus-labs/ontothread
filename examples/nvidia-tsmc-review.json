@@ -1,0 +1,14 @@
+{
+  "passage_id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+  "counterparty": {
+    "id": "a4a60dbd-6062-584a-a745-cb386430b0c9",
+    "kind": "Company",
+    "canonical_name": "Taiwan Semiconductor Manufacturing Company Limited",
+    "slug": "company-tsmc",
+    "status": "reviewed"
+  },
+  "subject_is_issuer": true,
+  "predicate": "CONTRACTS_MANUFACTURING_TO",
+  "quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+  "reviewer": "codex:manual-source-review"
+}

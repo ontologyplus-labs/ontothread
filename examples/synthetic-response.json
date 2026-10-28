@@ -1,0 +1,66 @@
+{
+  "relationships": [
+    {
+      "claim": {
+        "id": "0f0251cc-edc7-5130-b473-c5510557e61e",
+        "claim_id": "022fa405-cfaa-5e95-ae44-bd9e97a03a33",
+        "revision": 1,
+        "subject_id": "fb38c0f2-cd58-5771-aa29-aa4f253e6ac5",
+        "object_id": "c831584c-da8c-50c7-a108-92a287e40db5",
+        "predicate": "CONTRACTS_MANUFACTURING_TO",
+        "assertion_class": "explicit",
+        "polarity": "positive",
+        "review_state": "accepted",
+        "source_available_at": "2025-01-01T00:00:00.000000Z",
+        "system_from": "2025-01-02T00:00:00.000000Z",
+        "system_to": null,
+        "valid_from": null,
+        "valid_to": null,
+        "reviewer": "synthetic-test-author"
+      },
+      "evidence": [
+        {
+          "evidence": {
+            "assessment": "supported",
+            "claim_revision_id": "0f0251cc-edc7-5130-b473-c5510557e61e",
+            "end_offset": 69,
+            "id": "fa494262-23c3-5af6-b6db-46f339ddad3b",
+            "passage_id": "e00fd2d7-61f4-5752-9ab9-47b246f60053",
+            "quote": "Example Designer contracts manufacturing to Example Foundry.",
+            "start_offset": 9
+          },
+          "passage": {
+            "end_offset": 69,
+            "id": "e00fd2d7-61f4-5752-9ab9-47b246f60053",
+            "section_path": "Business",
+            "start_offset": 9,
+            "text_version_id": "8917d361-8c0d-5b06-a9d8-5e3b6347aeef"
+          },
+          "text_version": {
+            "document_id": "fc958af6-3642-5e34-afbd-e02c1e3862d5",
+            "id": "8917d361-8c0d-5b06-a9d8-5e3b6347aeef",
+            "normalized_hash": "b64bc1ea089d76b947148200677ef9bb5d7b2c549c54a0740ddc038060257c4c",
+            "normalized_text": "Business\nExample Designer contracts manufacturing to Example Foundry.\n",
+            "parser_version": "fixture-v1"
+          },
+          "document": {
+            "accession": "synthetic-001",
+            "acquired_at": "2025-01-02T00:00:00.000000Z",
+            "content_hash": "b64bc1ea089d76b947148200677ef9bb5d7b2c549c54a0740ddc038060257c4c",
+            "filename": "synthetic.txt",
+            "form": "SYNTHETIC",
+            "id": "fc958af6-3642-5e34-afbd-e02c1e3862d5",
+            "issuer_id": "fb38c0f2-cd58-5771-aa29-aa4f253e6ac5",
+            "published_at": "2025-01-01T00:00:00.000000Z",
+            "source": "synthetic_fixture",
+            "source_url": "https://example.invalid/synthetic-fixture"
+          }
+        }
+      ],
+      "validity_known": false
+    }
+  ],
+  "truncated": false,
+  "storage_mode": "sqlite_development",
+  "query_source": "authoritative_claim_store"
+}

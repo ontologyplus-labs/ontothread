@@ -1,0 +1,7 @@
+{
+  "name": "financial-intelligence-graph-browser-checks",
+  "private": true,
+  "description": "Optional browser acceptance checks; the application needs no Node build.",
+  "scripts": {"test:browser": "node tests/browser/workspace.mjs"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

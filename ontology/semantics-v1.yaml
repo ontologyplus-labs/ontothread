@@ -1,0 +1,59 @@
+semantic_model: constrained_property_graph
+formal_reasoner_required: false
+decision_rules:
+  instance: A named real-world member of an existing entity kind.
+  subtype: A stable narrower category with inherited meaning; not a named instance.
+  synonym: A different label with no distinct meaning or endpoint behavior.
+  qualifier: Context that modifies a fact, such as product scope, modality, magnitude, or time.
+  predicate: A reusable directed or symmetric relationship between allowed endpoint kinds.
+  no_change: Use when existing concepts and qualifiers already represent the evidence.
+entities:
+  Company: A legally or operationally identifiable business organization.
+  Person: A named natural person.
+  Security: A tradable or legally defined financial instrument.
+  Product: A named commercial product or product family.
+  Technology: A named technical process, platform, method, or service capability.
+  Industry: An economic sector or market category.
+  Geography: A named country, region, jurisdiction, or location.
+  FinancialMetric: A defined quantitative reporting concept.
+  Guidance: A forward-looking company forecast or target.
+  Risk: A disclosed uncertainty or exposure category.
+  Event: A bounded occurrence with documentary support.
+  Document: An immutable source document or filing.
+  Claim: A normalized assertion with provenance and review state.
+predicates:
+  SUPPLIES_TO: {direction: subject_supplier_to_object_customer, symmetric: false, traversal: factual, definition: A named company explicitly supplies a product or service to another named company.}
+  CUSTOMER_OF: {direction: subject_customer_to_object_provider, symmetric: false, traversal: factual, definition: A named company is explicitly identified as a customer of another named company.}
+  CONTRACTS_MANUFACTURING_TO: {direction: subject_buyer_to_object_manufacturer, symmetric: false, traversal: factual, definition: A company explicitly engages another company for foundry or contract-manufacturing work.}
+  MANUFACTURES: {direction: subject_company_to_object_product, symmetric: false, traversal: factual, definition: A company explicitly manufactures the named product.}
+  DEPENDS_ON: {direction: subject_dependent_to_object_dependency, symmetric: false, traversal: interpretive_only_when_explicit, definition: The source explicitly states dependence rather than merely use or purchase.}
+  COMPETES_WITH: {direction: symmetric_company_pair, symmetric: true, traversal: factual, definition: Two named companies are explicitly described as competitors.}
+  PARTNERS_WITH: {direction: symmetric_company_pair, symmetric: true, traversal: factual, definition: Two named companies are explicitly described as partners in a current relationship.}
+  OWNS: {direction: subject_owner_to_object_owned, symmetric: false, traversal: factual, definition: The subject explicitly owns the object at the stated time.}
+  CEO_OF: {direction: subject_person_to_object_company, symmetric: false, traversal: factual, definition: The person is explicitly identified as chief executive of the company.}
+  BOARD_MEMBER_OF: {direction: subject_person_to_object_company, symmetric: false, traversal: factual, definition: The person is explicitly identified as a board member of the company.}
+  OPERATES_IN: {direction: subject_company_to_object_geography, symmetric: false, traversal: factual, definition: The company explicitly operates in the named geography.}
+  EXPOSED_TO: {direction: subject_company_to_object_exposure, symmetric: false, traversal: interpretive_only_when_explicit, definition: The filing explicitly identifies an exposure to the object.}
+  USES_TECHNOLOGY: {direction: subject_user_to_object_technology, symmetric: false, traversal: factual, definition: The subject explicitly uses the named technology.}
+  DEVELOPS: {direction: subject_company_to_object_product_or_technology, symmetric: false, traversal: factual, definition: The company explicitly develops the named product or technology.}
+  REPORTS: {direction: subject_company_to_object_metric, symmetric: false, traversal: factual, definition: The company reports an observation for the financial metric.}
+  GUIDES: {direction: subject_company_to_object_guidance, symmetric: false, traversal: factual, definition: The company issues the represented guidance.}
+  REVISES_GUIDANCE: {direction: subject_company_to_object_guidance, symmetric: false, traversal: factual, definition: The company explicitly revises previously issued guidance.}
+  ACQUIRES: {direction: subject_acquirer_to_object_acquired, symmetric: false, traversal: factual, definition: The company completed the documented acquisition; proposed transactions require modality rather than this fact.}
+  INVESTS_IN: {direction: subject_investor_to_object_investment, symmetric: false, traversal: factual, definition: The source explicitly states a completed or current investment.}
+  MENTIONS: {direction: subject_document_to_object_mentioned, symmetric: false, traversal: non_business_metadata, definition: The source document explicitly names the object without asserting another relationship.}
+  SUPPORTED_BY: {direction: subject_claim_to_object_document, symmetric: false, traversal: provenance_only, definition: The document contains evidence supporting the claim.}
+  DERIVED_FROM: {direction: subject_claim_to_object_source, symmetric: false, traversal: provenance_only, definition: The claim was derived from another claim or document.}
+  PROVIDES_ADVANCED_PACKAGING: {direction: subject_company_to_object_technology, symmetric: false, traversal: factual, definition: The company explicitly provides advanced semiconductor packaging technology or services represented by the object.}
+competency_questions:
+  - Which reviewed companies explicitly provide advanced-packaging technologies or services, and what filing supports each answer?
+  - Which named companies use the same contract manufacturer, without asserting that they transact with each other?
+  - Which relationships were publicly disclosed by a cutoff, and which were known to the system at that cutoff?
+  - Which ontology version first made a supported relationship representable?
+  - Which evidence remains insufficient for a relationship and therefore requires abstention?
+global_counterexamples:
+  - A company name appearing in a table without relationship language is not a business edge.
+  - A generic category such as suppliers or customers is not a resolved entity.
+  - A possible, intended, conditional, or proposed transaction is not a completed factual relationship.
+  - Shared connection through an intermediate company is not a direct relationship between the endpoints.
+  - Missing disclosure in a later filing does not establish termination.

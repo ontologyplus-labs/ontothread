@@ -1,0 +1,52 @@
+services:
+  postgres:
+    image: postgres:17.6
+    environment:
+      POSTGRES_DB: fig
+      POSTGRES_USER: fig
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fig_local}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fig -d fig"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  neo4j:
+    image: neo4j:5.26.12-community
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-fig_local_password}
+    ports: ["127.0.0.1:7474:7474", "127.0.0.1:7687:7687"]
+    volumes: ["neo4j_data:/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p \"$${NEO4J_AUTH#*/}\" 'RETURN 1' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      start_period: 30s
+      retries: 30
+  api:
+    build: .
+    env_file: .env
+    environment:
+      FIG_DATABASE_URL: postgresql://fig:${POSTGRES_PASSWORD:-fig_local}@postgres:5432/fig
+      FIG_ARCHIVE_DIR: /app/data/archive
+      FIG_SEC_CACHE_DIR: /app/data/sec-cache
+      FIG_NEO4J_URI: bolt://neo4j:7687
+      FIG_NEO4J_USER: neo4j
+      FIG_NEO4J_PASSWORD: ${NEO4J_PASSWORD:-fig_local_password}
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["./data:/app/data"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/v1/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    command: ["sh", "-c", "fig migrate && uvicorn fig.api:app --host 0.0.0.0 --port 8000"]
+volumes:
+  postgres_data:
+  neo4j_data:

@@ -1,0 +1,87 @@
+name: Validate platform
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  unit-and-package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest -q -m "not integration"
+      - run: python scripts/audit_release.py
+      - run: python -m pip wheel --no-deps --wheel-dir dist .
+      - name: Fresh installed-wheel demo
+        shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/fig-wheel-env"
+          "$RUNNER_TEMP/fig-wheel-env/bin/python" -m pip install dist/*.whl
+          mkdir "$RUNNER_TEMP/fig-demo"
+          cd "$RUNNER_TEMP/fig-demo"
+          "$RUNNER_TEMP/fig-wheel-env/bin/fig" migrate
+          "$RUNNER_TEMP/fig-wheel-env/bin/fig" demo
+          "$RUNNER_TEMP/fig-wheel-env/bin/python" -c "from importlib.resources import files; assert files('fig').joinpath('web/index.html').is_file(); assert files('fig').joinpath('resources/010_claim_lifecycle.sql').is_file()"
+  native-integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17.6
+        env:
+          POSTGRES_DB: fig_test
+          POSTGRES_USER: fig
+          POSTGRES_PASSWORD: fig_test_password
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U fig -d fig_test"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+      neo4j:
+        image: neo4j:5.26.12-community
+        env:
+          NEO4J_AUTH: neo4j/fig_test_password
+          NEO4J_server_memory_heap_initial__size: 256m
+          NEO4J_server_memory_heap_max__size: 512m
+        ports: ["7687:7687"]
+    env:
+      FIG_TEST_DATABASE_URL: postgresql://fig:fig_test_password@127.0.0.1:5432/fig_test
+      FIG_TEST_NEO4J_URI: bolt://127.0.0.1:7687
+      FIG_TEST_NEO4J_PASSWORD: fig_test_password
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - run: python scripts/wait_for_services.py
+      - run: python -m pytest -q -m integration
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python -m pip install -e ".[dev]"
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Seed and serve the offline demo
+        run: |
+          fig migrate
+          fig demo
+          uvicorn fig.api:app --host 127.0.0.1 --port 8000 > /tmp/fig-api.log 2>&1 &
+      - run: npm run test:browser
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-results
+          path: test-results/

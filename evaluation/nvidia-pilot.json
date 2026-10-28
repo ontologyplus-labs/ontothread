@@ -1,0 +1,353 @@
+{
+  "version": "nvidia-company-relations-pilot-v1",
+  "annotation_author": "codex:source-review",
+  "annotation_status": "source-checked; independent human review pending",
+  "created_at": "2026-09-30T17:13:38.219246+00:00",
+  "policy": {
+    "scope": "Positive explicit Company-to-Company relationships in the supplied excerpt only; no neighboring context, external identities, hedged relationships, exclusivity or effective-date inference.",
+    "quote_scoring": "A valid quote must occur once and include the named company. Evidence support requires the complete annotated supporting sentence inside the proposed quote. Relation-only and evidence-supported scores are reported separately.",
+    "name_matching": "Case/whitespace normalization only; no suffix removal or fuzzy identity matching.",
+    "grouping": "All cases come from one NVIDIA filing. Three positive excerpts share one parent paragraph; this is a smoke benchmark, not a held-out generalization estimate."
+  },
+  "cases": [
+    {
+      "id": "named-foundries",
+      "issuer_name": "NVIDIA CORP",
+      "text": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+      "text_hash": "13a4750ac1264fdc31b6a3569e9a0c1672d0bffb798ff11539b8c289d6665b48",
+      "category": "manufacturing",
+      "annotation_notes": "Normalize explicitly engaged foundries; preserve issuer-to-foundry direction.",
+      "expected": [
+        {
+          "counterparty_name": "Taiwan Semiconductor Manufacturing Company Limited",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers."
+        },
+        {
+          "counterparty_name": "Samsung Electronics Co., Ltd.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers."
+        }
+      ],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 38201,
+        "end_offset": 38375
+      }
+    },
+    {
+      "id": "named-memory-suppliers",
+      "issuer_name": "NVIDIA CORP",
+      "text": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung.",
+      "text_hash": "ae423a6779be8392c569fb974b331c125fc251575f506e0b5c48922fd556ee8b",
+      "category": "supply",
+      "annotation_notes": "Memory vendors supply the issuer, so the direction is counterparty-to-issuer. Use the names present in this excerpt; do not resolve Samsung to a legal entity from external knowledge.",
+      "expected": [
+        {
+          "counterparty_name": "SK Hynix Inc.",
+          "subject_is_issuer": false,
+          "predicate": "SUPPLIES_TO",
+          "supporting_quote": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung."
+        },
+        {
+          "counterparty_name": "Micron Technology, Inc.",
+          "subject_is_issuer": false,
+          "predicate": "SUPPLIES_TO",
+          "supporting_quote": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung."
+        },
+        {
+          "counterparty_name": "Samsung",
+          "subject_is_issuer": false,
+          "predicate": "SUPPLIES_TO",
+          "supporting_quote": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung."
+        }
+      ],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 38376,
+        "end_offset": 38452
+      }
+    },
+    {
+      "id": "named-contract-manufacturers",
+      "issuer_name": "NVIDIA CORP",
+      "text": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products.",
+      "text_hash": "07b49a764277ef19f23b55a058cde456001db3111cf8afda4ef462c50971b2f7",
+      "category": "manufacturing",
+      "annotation_notes": "Assembly/testing/packaging of final products is contracted manufacturing; do not invent exclusive/material relationships.",
+      "expected": [
+        {
+          "counterparty_name": "Hon Hai Precision Industry Co., Ltd.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products."
+        },
+        {
+          "counterparty_name": "Wistron Corporation",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products."
+        },
+        {
+          "counterparty_name": "Fabrinet",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products."
+        }
+      ],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 38510,
+        "end_offset": 38724
+      }
+    },
+    {
+      "id": "anonymous-foundries",
+      "issuer_name": "NVIDIA CORP",
+      "text": "We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors. These subcontractors assist with procuring components used in our systems, boards, and products. We face risks which have adversely affected or could adversely affect our ability to meet customer demand and scale our supply chain, negatively impact longer-term demand for our products and services, and adversely affect our business operations, gross margin, revenue and/or financial results, including:",
+      "text_hash": "b4406924101c96f1a986f98412f776aa5935c5715cbdb7651e06bc4c759a4cad",
+      "category": "anonymous",
+      "annotation_notes": "No company is named; do not invent foundry identities.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "e690d02f-555c-5d7a-9a51-6cb607dbd05e",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 82508,
+        "end_offset": 83129
+      }
+    },
+    {
+      "id": "hypothetical-foundry-failure",
+      "issuer_name": "NVIDIA CORP",
+      "text": "•failure by our foundries or contract manufacturers to procure raw materials or provide adequate levels of manufacturing or test capacity for our products;",
+      "text_hash": "1614e26eea26617819027e76d0af192fb0eaa2067a04d968f8a3d0af01db0f94",
+      "category": "hypothetical",
+      "annotation_notes": "Risk statement about anonymous counterparties.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "3a352364-86c2-5e8c-ab14-56071433d2ec",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 83396,
+        "end_offset": 83551
+      }
+    },
+    {
+      "id": "generic-platform-partners",
+      "issuer_name": "NVIDIA CORP",
+      "text": "NVIDIA has a platform strategy, bringing together hardware, systems, software, algorithms, libraries, AI models and training data sets, and services to create unique value for the markets we serve. While the computing requirements of these end markets are diverse, we address them with a unified underlying programmable architecture allowing us to support several multi-billion-dollar end markets with the same underlying technology by using a variety of software stacks developed either internally or by third-party developers and partners. The large and growing number of developers and installed base across our platforms strengthens our ecosystem and increases the value of our platform for our customers.",
+      "text_hash": "43e736246b36e80b9eaada28cb83f59fd8a5ce94eb679942cacfee312a006679",
+      "category": "anonymous",
+      "annotation_notes": "Partner/developer classes have no named counterparty.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "a37334c4-199f-5484-8432-f80cd8b71dc4",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 13367,
+        "end_offset": 14076
+      }
+    },
+    {
+      "id": "generic-partner-products",
+      "issuer_name": "NVIDIA CORP",
+      "text": "Professional artists, architects and designers use NVIDIA partner products accelerated with our GPUs and software platform for a range of creative, engineering, and design use cases, such as creating visual effects in movies or designing buildings and products. In addition, generative and agentic AI is expanding the market for our workstation-class GPUs, as more enterprise customers develop and deploy AI applications with their data on-premises.",
+      "text_hash": "bac96f7c5511654e0feeb06e1771ec11be733012e30b1c052308892d80aac41a",
+      "category": "anonymous",
+      "annotation_notes": "NVIDIA partner products are unnamed; do not turn a product or industry into a company.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "e722735a-14bd-5feb-a015-c1725c8182b0",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 18731,
+        "end_offset": 19180
+      }
+    },
+    {
+      "id": "industry-partnerships",
+      "issuer_name": "NVIDIA CORP",
+      "text": "ODMs, system integrators and distributors which we partner with to help bring our products to market. We also have partnerships in automotive, healthcare, financial services, manufacturing, retail, and technology among others, to accelerate the adoption of AI.",
+      "text_hash": "4035a7619ae43695a1e767f427d10f4366765e94bff4aefb5880fc824954b389",
+      "category": "anonymous",
+      "annotation_notes": "Industry partnership categories do not identify a company.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "bf51cddb-7d57-5574-b5da-41d288d2e7fc",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 22133,
+        "end_offset": 22393
+      }
+    },
+    {
+      "id": "future-competitors",
+      "issuer_name": "NVIDIA CORP",
+      "text": "demand and whether we are able to deliver consistent volumes of our products at acceptable levels of quality and at competitive prices. We expect competition to increase from both existing competitors and new market entrants with products that may be lower priced than ours or may provide better performance or additional features not provided by our products. In addition, it is possible that new competitors or alliances among competitors could emerge and acquire significant market share.",
+      "text_hash": "1a3057021bbb595042607545a17e4b3a00e12a2050cafa835b3d258e77afe506",
+      "category": "hypothetical",
+      "annotation_notes": "No named competitor, and several statements are prospective.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "7f0677c8-3266-5c88-8209-46c92fefc3ad",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 39358,
+        "end_offset": 39849
+      }
+    },
+    {
+      "id": "generic-competition",
+      "issuer_name": "NVIDIA CORP",
+      "text": "A significant source of competition comes from companies that provide or intend to provide GPUs, CPUs, DPUs, embedded SoCs, and other accelerated, AI computing processor products, and providers of semiconductor-based high-performance interconnect products based on InfiniBand, Ethernet, Fibre Channel, and proprietary technologies. Some of our competitors may have greater marketing, financial, distribution and manufacturing resources than we do and may be more able to adapt to customers or technological changes. We expect an increasingly competitive environment in the future.",
+      "text_hash": "c218f5f97573458ed474948224ee71f53e6d9adf59abacd633122a9d515bbdb0",
+      "category": "anonymous",
+      "annotation_notes": "Competitor descriptions have no named company.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "9fa95fd3-beba-5491-8505-3343504f90f7",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 39851,
+        "end_offset": 40431
+      }
+    },
+    {
+      "id": "isolated-cloud-company-list",
+      "issuer_name": "NVIDIA CORP",
+      "text": "•large cloud services companies with internal teams designing hardware and software that incorporate accelerated or AI computing functionality as part of their internal solutions or platforms, such as Alibaba Group, Alphabet Inc., Amazon, Inc., or Amazon, Baidu, Inc., Huawei, and Microsoft Corporation, or Microsoft;",
+      "text_hash": "2ace723701e8aabf527be2520fbaa88ed8a6f3d447669e0c616f095d044fa671",
+      "category": "missing-context",
+      "annotation_notes": "Names appear in a list; this isolated passage does not explicitly connect them to the issuer through an allowed predicate. Nearby competition text is not supplied.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "cfe3a1e7-5d6f-5e41-a588-9f5a20817fdf",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 40764,
+        "end_offset": 41081
+      }
+    },
+    {
+      "id": "isolated-cpu-supplier-list",
+      "issuer_name": "NVIDIA CORP",
+      "text": "•suppliers of Arm-based CPUs and companies that incorporate hardware and software for CPUs as part of their internal solutions or platforms, such as Amazon, Huawei, and Microsoft;",
+      "text_hash": "ed08fac1c5292b24e4d1ea04a650576414a8648e2cfc7e946cdf6f30f17d6739",
+      "category": "missing-context",
+      "annotation_notes": "Suppliers of Arm-based CPUs are named, but no statement says they supply NVIDIA; no cross-passage inference.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "1f1dc9fd-7451-538b-893f-a2fb20d37ef2",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 41083,
+        "end_offset": 41262
+      }
+    },
+    {
+      "id": "executive-former-employers",
+      "issuer_name": "NVIDIA CORP",
+      "text": "Colette M. Kress joined NVIDIA in 2013 as Executive Vice President and Chief Financial Officer. Prior to NVIDIA, Ms. Kress most recently served as Senior Vice President and Chief Financial Officer of the Business Technology and Operations Finance organization at Cisco Systems, Inc., a networking equipment company, since 2010. At Cisco, Ms. Kress was responsible for financial strategy, planning, reporting and business development for all business segments, engineering and operations. From 1997 to 2010 Ms. Kress held a variety of positions at Microsoft, a software company, including, beginning in 2006, Chief Financial Officer of the Server and Tools division, where Ms. Kress was responsible for financial strategy, planning, reporting and business development for the division. Prior to joining Microsoft, Ms. Kress spent eight years at Texas Instruments Incorporated, a semiconductor company, where she held a variety of finance positions. Ms. Kress holds a B.S. degree in Finance from University of Arizona and an M.B.A. degree from Southern Methodist University.",
+      "text_hash": "803317ed4a3052628700596f2109c6ad7708fe030ad2bb6ab115baf1c4543083",
+      "category": "mention-only",
+      "annotation_notes": "Former employers of an executive do not establish company-to-company relationships.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "9e1904a3-b23e-518a-a923-2dd518c6b4f4",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 55300,
+        "end_offset": 56372
+      }
+    },
+    {
+      "id": "proposed-openai-agreement",
+      "issuer_name": "NVIDIA CORP",
+      "text": "We are finalizing an investment and partnership agreement with OpenAI. There is no assurance that we will enter into an investment and partnership agreement with OpenAI or that a transaction will be completed.",
+      "text_hash": "ac12bc6ef5d9f8417b529eef27963719841a32b21dc1986604dcff5b6ff78a83",
+      "category": "hedged",
+      "annotation_notes": "Explicitly uncompleted investment/partnership agreement; no accepted positive relationship.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "8b9934a9-2608-55c1-9f75-1b276a463fb9",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 113176,
+        "end_offset": 113385
+      }
+    },
+    {
+      "id": "proposed-investment-repeat",
+      "issuer_name": "NVIDIA CORP",
+      "text": "We expect to continue investing in our ecosystem. We are finalizing an investment and partnership agreement with OpenAI. There is no assurance that we will enter into an investment and partnership agreement with OpenAI or that a transaction will be completed. Refer to Item 1A. Risk Factors for additional information regarding our investments.",
+      "text_hash": "b1ed2d62114bb057882992e14aa6d8c9f83dc2c01d164294f052e89e7218fb6d",
+      "category": "hedged",
+      "annotation_notes": "An investment strategy plus uncompleted agreement does not establish a current partnership.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "f28d3f08-25b9-5a47-a49e-3b096ecc7fca",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 219617,
+        "end_offset": 219961
+      }
+    },
+    {
+      "id": "conditional-microsoft-rights",
+      "issuer_name": "NVIDIA CORP",
+      "text": "The anti-takeover provisions of the Delaware General Corporation Law may discourage, delay, or prevent a change in control. Provisions in our certificate of incorporation and bylaws could make it more difficult for a third party to acquire a majority of our outstanding stock. These provisions include the ability of our Board of Directors to create and issue preferred stock, change the number of directors, and to make, amend or repeal our bylaws without prior shareholder approval; the inability of our shareholders to act by written consent; advance notice requirements for director nominations and shareholder proposals; and super-majority voting requirement to amend some provisions in our certificate of incorporation and bylaws. Under our agreement with Microsoft for the Xbox, if someone makes an offer to purchase at least 30% of our outstanding common stock, Microsoft may have first and last rights of refusal to purchase the stock. These provisions could delay or prevent a change in control of NVIDIA, discourage proxy contests, and make it more difficult for shareholders to elect directors of their choosing and to cause us to take other corporate actions they desire.",
+      "text_hash": "1d533233b3270b7096f556c65b0681dca32972d2519787a30f51ce53b33f9b0d",
+      "category": "predicate-out-of-scope",
+      "annotation_notes": "Agreement with conditional stock rights does not establish ownership, supply, manufacturing, competition or an explicit partnership. Do not equate every agreement with PARTNERS_WITH.",
+      "expected": [],
+      "source": {
+        "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+        "passage_id": "fd04d7a8-3571-529b-9fd3-792d47ce0e53",
+        "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+        "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "start_offset": 173300,
+        "end_offset": 174484
+      }
+    }
+  ]
+}

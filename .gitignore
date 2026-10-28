@@ -1,0 +1,29 @@
+# Local configuration and storage
+.env
+.env.*
+!.env.example
+!.env.compose.example
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.db-*
+*.sqlite3-*
+# Python/build/editor artifacts
+.venv/
+.python-deps/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+.DS_Store
+# Private reviewer returns and generated run outputs
+*.completed.csv
+evaluation/reports/
+test-results/
+playwright-report/
+node_modules/

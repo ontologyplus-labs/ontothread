@@ -1,0 +1,613 @@
+{
+  "description": "Selected source fixtures retained to run the inherited tests. Original work is preserved separately. Source hashes precede platform changes.",
+  "files": [
+    {
+      "path": "src/fig/__init__.py",
+      "source_sha256": "47c7fdd2c088e1e9fce0a7957208319a7ebf81fc6ca398c8bfcc130f52551ddd"
+    },
+    {
+      "path": "src/fig/acceptance.py",
+      "source_sha256": "215d3e917b6ab1e3980495b77c337afa912c1762c5776cd7027ce40c4d0139cb"
+    },
+    {
+      "path": "src/fig/analysis.py",
+      "source_sha256": "e81dfc5bcfddadeee9ec003387d6800abd277cda56aabcee674a2602d5d099ef"
+    },
+    {
+      "path": "src/fig/anchored_extraction.py",
+      "source_sha256": "3eaec5f7f2310df249aad19d03e1b30b639442569e4c7e7bb9f55cb521e1eb17"
+    },
+    {
+      "path": "src/fig/annotations.py",
+      "source_sha256": "994a1fe2dff75a1156e64175797b08ab3ce43484b5869126b3d6a70875ef471b"
+    },
+    {
+      "path": "src/fig/api.py",
+      "source_sha256": "18242d035c93f3ce47bdc568d5d09195771186cd951172fd3850344b63603b07"
+    },
+    {
+      "path": "src/fig/automated_schema_review.py",
+      "source_sha256": "7e823e2764418dd6eea3f557c0ee770d4bee1565d8dd29eb21f595349e4f1126"
+    },
+    {
+      "path": "src/fig/automated_schema_review_v2.py",
+      "source_sha256": "e4958e14294aab75125331b8bd10780ed0fa799bb587e58141a064b01bb46521"
+    },
+    {
+      "path": "src/fig/bounded_responses.py",
+      "source_sha256": "ae07b6d710568d79b521cc69afb39e0930fd895f4e022bbc9d2c2b347cbfd94f"
+    },
+    {
+      "path": "src/fig/cli.py",
+      "source_sha256": "464db2c7b47dc3c924beab64da41af47b913b7fae9d45cf0f5783969a6d9241f"
+    },
+    {
+      "path": "src/fig/config.py",
+      "source_sha256": "ef127ae8d3a19a625375c79000b610cd362798b5e033fd394c1f7055d2ddd78e"
+    },
+    {
+      "path": "src/fig/contracts.py",
+      "source_sha256": "1edd84ef49798f958778fc6ae3c2d1ba732bf64b83c6242ddff4a666f354bec9"
+    },
+    {
+      "path": "src/fig/curated_licensing_metrics.py",
+      "source_sha256": "4cf038c05f47efa498659c94723e85f8d2238f279e1ab21c85a28611176f39b6"
+    },
+    {
+      "path": "src/fig/evaluation.py",
+      "source_sha256": "51b71e266355a03c2a88c908ac972dec806acf45d7a8c74e241060d892014741"
+    },
+    {
+      "path": "src/fig/events.py",
+      "source_sha256": "38f62d8c3f02f866dd9813a933ccf903fa88fc8c088efd395827d6647ac2e731"
+    },
+    {
+      "path": "src/fig/evidence_spans.py",
+      "source_sha256": "e6b49aa4bc1a35bcc7fff0f19d9d7165c8061f7052f68e3bf66cb7e83a366420"
+    },
+    {
+      "path": "src/fig/evolution_case.py",
+      "source_sha256": "8e41981b0307d4959350942a2e6cb6b6683698fa29ba1334ee9709c7122a3650"
+    },
+    {
+      "path": "src/fig/expanded_experiment.py",
+      "source_sha256": "4cbb84166c3c56022c27db9704f4e5698bd5ad1833f45f0cc3b87009c207b1f5"
+    },
+    {
+      "path": "src/fig/expanded_qa.py",
+      "source_sha256": "07af05ad53092326682c00e56e39de704fb50293710e673d43cedff34d36bc06"
+    },
+    {
+      "path": "src/fig/experiment.py",
+      "source_sha256": "51963618003ffb4675d0ca76f2d0e0d1b257d31442158add6e3f4170ee25d4e8"
+    },
+    {
+      "path": "src/fig/extraction.py",
+      "source_sha256": "867b8091861c17c617c5aecdff9a284a252ab496e38ebdbbc42c1b0e6283367c"
+    },
+    {
+      "path": "src/fig/fixture.py",
+      "source_sha256": "1df8ccf10bf28c0784de8fa85d017738931f832965644748c65e8cec40a8521d"
+    },
+    {
+      "path": "src/fig/followup_extraction.py",
+      "source_sha256": "aa3bc2ef3299c6ecc872b0e549b645fc4079aa54d1a4640ed63f3215cd0d1d9b"
+    },
+    {
+      "path": "src/fig/followup_schema.py",
+      "source_sha256": "e117f2169926a7956e260da8edb24447eb8c2d8464a8cb00f5ec02bd2654817f"
+    },
+    {
+      "path": "src/fig/generic_extraction.py",
+      "source_sha256": "88cf2002f946dfc023f6aa38c4f8cc56808bd4d4dfe76490f6467336af937747"
+    },
+    {
+      "path": "src/fig/ingestion.py",
+      "source_sha256": "ea9b4fb12e901bb759e8415e4dffdb90eb1736d729b9d372945dfe2edc39e7be"
+    },
+    {
+      "path": "src/fig/jev_entity_resolution.py",
+      "source_sha256": "b43116f13b0a3b22a28826a0ec5035e4bfc3c9367a1c520a0f1b1d491292c86f"
+    },
+    {
+      "path": "src/fig/jev_ontology_triage.py",
+      "source_sha256": "b6092eebba524873f1b4064430bab12b57081bf37e986f28bab88150f1dfaf6e"
+    },
+    {
+      "path": "src/fig/jev_shadow.py",
+      "source_sha256": "94e9a4ad87f3f395fee146da9749e8da881d52a56baf739a007c1b8b066204bb"
+    },
+    {
+      "path": "src/fig/judge_packets.py",
+      "source_sha256": "4bb30473e0385c6965e2687d04762ea1be2b634d953267e320df004099e2a40f"
+    },
+    {
+      "path": "src/fig/licensing_experimental_graph.py",
+      "source_sha256": "3a75e04bd5eeeefd4db0f08d4ffe9a73de427fda27981f19e0680e84f545ccf1"
+    },
+    {
+      "path": "src/fig/licensing_metrics.py",
+      "source_sha256": "c0973345ade23214e508bffdafd73d5fa2583fdf521afdff3a781ffa51855d20"
+    },
+    {
+      "path": "src/fig/licensing_policy_guard.py",
+      "source_sha256": "2348c5394bb4525d3045065ae2c7930918edc3f34d5cddb69a75d9150bdf3682"
+    },
+    {
+      "path": "src/fig/licensing_research.py",
+      "source_sha256": "4eaf7c6b17b10f96bef31926b906b7f2d26bb8453942db7a4ceb94dca968b96b"
+    },
+    {
+      "path": "src/fig/licensing_review.py",
+      "source_sha256": "15b756132bded9a202c021ea09ec0154548566b5e087e3b936a37f135a294fa9"
+    },
+    {
+      "path": "src/fig/licensing_semantic_validation.py",
+      "source_sha256": "c93c281c66de07257e35acb082087b7cca9c99e758ac7d29b338ed96dea7d2bf"
+    },
+    {
+      "path": "src/fig/licensing_study_metrics.py",
+      "source_sha256": "9f1962ac6ac3a800d83977ee285b7246926badeea705492feb0c46e692d806b4"
+    },
+    {
+      "path": "src/fig/llm_judge.py",
+      "source_sha256": "ec6f2544f19cb4d5ebbae8e29f0165899d9107561ed21f4c18e7acd385409db6"
+    },
+    {
+      "path": "src/fig/normalization.py",
+      "source_sha256": "1a10624959cf5d0e204f1ad8dd0b4467d335ad60c5e379afcbeabe37591051db"
+    },
+    {
+      "path": "src/fig/ontology_runtime.py",
+      "source_sha256": "8c408d58d8c0f9a66f9ecbbd4befb8f3e376003ff86852c8bc544494bd7b977b"
+    },
+    {
+      "path": "src/fig/projection.py",
+      "source_sha256": "7def757cece6e2669508a0489ce9bcfa4043b25a2c4efce2eeda2c394111b855"
+    },
+    {
+      "path": "src/fig/research.py",
+      "source_sha256": "6c6bd299ea79a3e67998c80c2328b717d3ff60f66a079a9717aab6f701e5a609"
+    },
+    {
+      "path": "src/fig/resources/001_core.sql",
+      "source_sha256": "338bdb0d396cec0bd9eac71018ca014df5b21a1100cfa8836047e7feec772576"
+    },
+    {
+      "path": "src/fig/resources/002_ingestion.sql",
+      "source_sha256": "3ec06b690760a4f12238432c7dbd3c523009fc021972631c976f1e46608e22dc"
+    },
+    {
+      "path": "src/fig/resources/003_review.sql",
+      "source_sha256": "7e5c1c3755bebd59dead39620b04e14c36984ed1836dc2da0a766060c0df62fc"
+    },
+    {
+      "path": "src/fig/resources/004_entity_resolution.sql",
+      "source_sha256": "35276e579f0de4339d4416864481e6648f0d49be31c2891bff38016031244ecb"
+    },
+    {
+      "path": "src/fig/resources/005_ontology_evolution.sql",
+      "source_sha256": "7c3a22e4848512fbe2db70fe4846bb340ae9507df7772eb778c931613a2f91b2"
+    },
+    {
+      "path": "src/fig/resources/006_entity_registry.sql",
+      "source_sha256": "40ece4f15c101946063de3a939cf9568d594ecc58f5702fe934d440dd587a229"
+    },
+    {
+      "path": "src/fig/resources/007_event_review.sql",
+      "source_sha256": "406f8daf46aace5f1bee87dc88ae6f349a4eb9ba41317d02ec44c4bff0ff0317"
+    },
+    {
+      "path": "src/fig/resources/008_financial_facts.sql",
+      "source_sha256": "80364e9733a6bb80f7e38d259c30a168bf834dc0400ebc095c9a764937af8ee1"
+    },
+    {
+      "path": "src/fig/resources/009_runtime_ontology.sql",
+      "source_sha256": "11fe5404dda0f9737295a367e00fc8d751222e07af6b5d48857f41aacc3d4678"
+    },
+    {
+      "path": "src/fig/resources/010_claim_lifecycle.sql",
+      "source_sha256": "a1c0a1be159124074aa8ee76c8b08aa1dc84b58cc87b9a60fb31b05ef8415077"
+    },
+    {
+      "path": "src/fig/resources/finance-v1.yaml",
+      "source_sha256": "50a81ba2f71f852d61f8413a3fbf525d0087cc92dceb6564cd0737ae7e60b707"
+    },
+    {
+      "path": "src/fig/resources/finance-v2.yaml",
+      "source_sha256": "dce9f6e7c82e6cf99065890c7f9aa92a1267d4288359b1def47f6bbea2cfe18b"
+    },
+    {
+      "path": "src/fig/retrieval.py",
+      "source_sha256": "00cdb9e12434293600cc160b9c5531ed03d3497f31169b639ba517ca1c4fc283"
+    },
+    {
+      "path": "src/fig/retrieval_evaluation.py",
+      "source_sha256": "a101611a0f26d383c203374e143849f0fcd016e0e20fb45c4a4f51adaea01330"
+    },
+    {
+      "path": "src/fig/review.py",
+      "source_sha256": "ed97124268bc0b4275ed7cacd1bfa8049c6b00709b472701e0fb9f818887a2f5"
+    },
+    {
+      "path": "src/fig/schema_pressure.py",
+      "source_sha256": "fcd5a9809bd6cea8cce290c6c0debf78bf6c22acb000e251e22fd6e7b7cf546b"
+    },
+    {
+      "path": "src/fig/sec.py",
+      "source_sha256": "59f08904dad10f039d41a7e69fdd962950c6771a61fe7f619620718139e74eda"
+    },
+    {
+      "path": "src/fig/source_registry.py",
+      "source_sha256": "7aa2288348d22c53fd6fbd29a78cc1aef6fe9bdd2bb394a7eaf720fce5fe9368"
+    },
+    {
+      "path": "src/fig/span_licensing_extraction.py",
+      "source_sha256": "886af4129d17e0a3dc9f18bf96e63caaa53f556687bc759ff506290bb006504c"
+    },
+    {
+      "path": "src/fig/store.py",
+      "source_sha256": "df0d4ccd8ae3cc7f83eb70da1ac3774383b8d4e732e023c54705ef08d3e85b4a"
+    },
+    {
+      "path": "src/fig/web/app.js",
+      "source_sha256": "19d976f66d888c91f46ddd1a5b7b57bc779fe4a1838005120ec625433e873231"
+    },
+    {
+      "path": "src/fig/web/index.html",
+      "source_sha256": "ece934b51ea3536f844db7bb5b38f5d9717038edf04eecce3caee3ae1653ad44"
+    },
+    {
+      "path": "src/fig/web/styles.css",
+      "source_sha256": "8a6db80ee7686bee09c075f04e57e55b636652e48f85634e9a4acf65e08c4ac4"
+    },
+    {
+      "path": "tests/test_acceptance.py",
+      "source_sha256": "e513110bc0e9ab5daa7ee41510e28793d02ce2777f6c8957bc84ee5eb8d4f080"
+    },
+    {
+      "path": "tests/test_analysis.py",
+      "source_sha256": "d9dfd6edc057177563af5c391720ba58ea46a4a258470a5dd047f4f8956a9a73"
+    },
+    {
+      "path": "tests/test_anchored_extraction.py",
+      "source_sha256": "17d61cf127bedbf940914ce16309dee79f8618e7eb183c06538f7c87864ec494"
+    },
+    {
+      "path": "tests/test_automated_schema_review.py",
+      "source_sha256": "ac00ee062fce8889246f02e922548c0ef80263d3cee833ccee07baaf14d3c33a"
+    },
+    {
+      "path": "tests/test_claim_lifecycle.py",
+      "source_sha256": "a2f18a7fdd0377d66830ba82052bddb009d761872f24827d252f17717280b6e0"
+    },
+    {
+      "path": "tests/test_comparison.py",
+      "source_sha256": "539a8d2c3abab179fa56b8a6fcd1d52e2b84137a9f71c38d26090b2835ecc43c"
+    },
+    {
+      "path": "tests/test_core.py",
+      "source_sha256": "864a60977e61ddd87b419e8b4e76bd9ffe6837f1fb320d8230764e550441064d"
+    },
+    {
+      "path": "tests/test_curated_licensing_metrics.py",
+      "source_sha256": "300c3a3341c1041f95f5ff0e2ed4caf4606cf05b2578185f8cf840099d8cf5ee"
+    },
+    {
+      "path": "tests/test_database_integration.py",
+      "source_sha256": "c9f69ec3c82fe2bab4af3ec1116bda74ffc770181216a9e17c7456cec44c1ab7"
+    },
+    {
+      "path": "tests/test_entity_registry.py",
+      "source_sha256": "11ec3727b479f2a2d1dd4c1996d3b1fb02cb8edc118a464ef8f6efbcbae6835d"
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "source_sha256": "20e72a45080a65f814f88e7be2208c884ed8af1c1cd0bfc18ba94e4987e09179"
+    },
+    {
+      "path": "tests/test_events.py",
+      "source_sha256": "c23eafa4e2ca164e6ddda5e1282b315c8d9b7e04e510a79fca108d038a50ca71"
+    },
+    {
+      "path": "tests/test_evidence_spans.py",
+      "source_sha256": "e57ebd4c3014cca9fff8af2435572564737c54e778cfcebc00d29603897880d8"
+    },
+    {
+      "path": "tests/test_exact_sec_hit.py",
+      "source_sha256": "582975bf5228568b43523d996a9395421aa9d723ec735b42ceca9754f573ba48"
+    },
+    {
+      "path": "tests/test_expanded_experiment.py",
+      "source_sha256": "af6559774aa5f389c00f631e20fe41b966a33a0f6c8abfde578cdfe770928e29"
+    },
+    {
+      "path": "tests/test_expanded_qa.py",
+      "source_sha256": "8f24146f6b515a43bc42d18ff2f56b83a61481302c9a8719eeddbb3d3bb2ca8b"
+    },
+    {
+      "path": "tests/test_expanded_review_intake.py",
+      "source_sha256": "e220c69e507fb47407a160fd6055b26f304fcc5f11263367c9f13d4650be2cc7"
+    },
+    {
+      "path": "tests/test_experiment.py",
+      "source_sha256": "85dfadd0eb60ab3d15e0e086bc85991ac9189293094dcf3c4db9bae58892bccf"
+    },
+    {
+      "path": "tests/test_extraction.py",
+      "source_sha256": "5093f67662303fd31a1b40072ec74285e2e4c55cbd56fdbb8f056a22b9ddb608"
+    },
+    {
+      "path": "tests/test_financial.py",
+      "source_sha256": "c3d47a77685f66af9ae296aae453b8a7042683cb73b098dac093daca2bc981e7"
+    },
+    {
+      "path": "tests/test_followup_schema.py",
+      "source_sha256": "9536cb0da7708ef57632f3aa7ad5cc47395e68512441d7585e872b7ef76ca0b9"
+    },
+    {
+      "path": "tests/test_generic_extraction.py",
+      "source_sha256": "e250131344ead62b11eeef9ec0d8c9d8eb1b1a23da363588b4004efa6a2e4e99"
+    },
+    {
+      "path": "tests/test_ingestion.py",
+      "source_sha256": "c32a47f9d215176ebce3de952a6fafae8bab6596e4be133e04a7d1a11b27f620"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "source_sha256": "d8ecca9475338efc35361a10ea773b6c6e305658ba72be292a7aa2249047374a"
+    },
+    {
+      "path": "tests/test_jev_entity_resolution.py",
+      "source_sha256": "a736fb6e05525d8f0649166e2ebb7d0f69d431f7ee8efbcf295da9ababdbf5fc"
+    },
+    {
+      "path": "tests/test_jev_ontology_triage.py",
+      "source_sha256": "2cb3200c6f43cfe588420eca5f62e9f6d1381972508287de58d87c237de736fb"
+    },
+    {
+      "path": "tests/test_jev_shadow.py",
+      "source_sha256": "5cd45402a1aaed33c468c72a6b3020fae0c9f066d866e1e1d3f4f592f42a826f"
+    },
+    {
+      "path": "tests/test_licensing_metrics.py",
+      "source_sha256": "1167eaa897f67dc0076a659900efd0028bd848a6c1643c7939e11226a7449fab"
+    },
+    {
+      "path": "tests/test_licensing_policy_guard.py",
+      "source_sha256": "8bc4ae5deb10f24efc096a820aae1aa063cab5ba1835cffd94534e87f4a636a0"
+    },
+    {
+      "path": "tests/test_licensing_research.py",
+      "source_sha256": "a587decd60dad16dffea4836038dafc1784787ab939262708f07ed9e0f897399"
+    },
+    {
+      "path": "tests/test_licensing_review.py",
+      "source_sha256": "7de087e5edc340f55d108880e604dba36e3e7397d98dba8bf38f354d5247faf4"
+    },
+    {
+      "path": "tests/test_licensing_semantic_validation.py",
+      "source_sha256": "f78a826975795f43faf99d6d3b3ed60affbb4c9b689dc02d60b5ab81d203091c"
+    },
+    {
+      "path": "tests/test_licensing_study_metrics.py",
+      "source_sha256": "2bd1ed8f1bb8e82fda60892880f0a536e0573983923f5bed5e40e95abf6822ea"
+    },
+    {
+      "path": "tests/test_llm_judge.py",
+      "source_sha256": "698b23a93d044f305c9d19f7c9fc62e6ee97196428a65e2aa30f1bff60e0923e"
+    },
+    {
+      "path": "tests/test_ontology_evolution.py",
+      "source_sha256": "bb15c1a26d6d0651b65d0905d43f2639f2ee82d7fb38c546e6cee31ab350ea3d"
+    },
+    {
+      "path": "tests/test_ontology_semantics.py",
+      "source_sha256": "da411c766cc8a65769c33edf17388d1a311ccca935d7af6ac50b121ad51a9238"
+    },
+    {
+      "path": "tests/test_paths.py",
+      "source_sha256": "dafe145b10a56a3e82da3d1f146c88f8625bacdf71a05562a7294bdb255f8adb"
+    },
+    {
+      "path": "tests/test_relationship_history.py",
+      "source_sha256": "6ddf3b26e9dd50ff2003c9973f7e60ab2052dac0b84b1dae0dc095a1e755bfb1"
+    },
+    {
+      "path": "tests/test_research.py",
+      "source_sha256": "681b670cd3bfc18033528f806df1a6ad510c627d0d8c90cf6e1c1084f65b64d0"
+    },
+    {
+      "path": "tests/test_resolution.py",
+      "source_sha256": "a88ba8d4a2dd5150fe114dca8d7b601ef19e7f63a772468725f2977b59b8b3e7"
+    },
+    {
+      "path": "tests/test_retrieval.py",
+      "source_sha256": "1d7059546d532d479e8693aafb3c04c1403c232765afea689e7b8052eb413ed5"
+    },
+    {
+      "path": "tests/test_retrieval_evaluation.py",
+      "source_sha256": "7f4c0be9bdfb4d911b8a31438edc2d07ef153a70fcb0fbba9aae3d4ca683d43b"
+    },
+    {
+      "path": "tests/test_runtime_ontology.py",
+      "source_sha256": "7d6dadccb58e0422dcaab0e805b822833961d61c06052c50c13f8406c144cb82"
+    },
+    {
+      "path": "tests/test_schema_pressure.py",
+      "source_sha256": "bd424115080556811883ad81ddb100d34062230a8bc90fde1c05608ff8ec698b"
+    },
+    {
+      "path": "tests/test_source_registry.py",
+      "source_sha256": "9f1820e8e2cb9dac47b57d2b2090ed8533d902684f2d675edda4a966e7ff3103"
+    },
+    {
+      "path": "tests/test_span_licensing_extraction.py",
+      "source_sha256": "1c83215f57e2e0e6a3ef7aa638b404cbbe17832e018ea192ad5c016be3928ee2"
+    },
+    {
+      "path": "migrations/001_core.sql",
+      "source_sha256": "338bdb0d396cec0bd9eac71018ca014df5b21a1100cfa8836047e7feec772576"
+    },
+    {
+      "path": "migrations/002_ingestion.sql",
+      "source_sha256": "3ec06b690760a4f12238432c7dbd3c523009fc021972631c976f1e46608e22dc"
+    },
+    {
+      "path": "migrations/003_review.sql",
+      "source_sha256": "7e5c1c3755bebd59dead39620b04e14c36984ed1836dc2da0a766060c0df62fc"
+    },
+    {
+      "path": "migrations/004_entity_resolution.sql",
+      "source_sha256": "35276e579f0de4339d4416864481e6648f0d49be31c2891bff38016031244ecb"
+    },
+    {
+      "path": "migrations/005_ontology_evolution.sql",
+      "source_sha256": "7c3a22e4848512fbe2db70fe4846bb340ae9507df7772eb778c931613a2f91b2"
+    },
+    {
+      "path": "migrations/006_entity_registry.sql",
+      "source_sha256": "40ece4f15c101946063de3a939cf9568d594ecc58f5702fe934d440dd587a229"
+    },
+    {
+      "path": "migrations/007_event_review.sql",
+      "source_sha256": "406f8daf46aace5f1bee87dc88ae6f349a4eb9ba41317d02ec44c4bff0ff0317"
+    },
+    {
+      "path": "migrations/008_financial_facts.sql",
+      "source_sha256": "80364e9733a6bb80f7e38d259c30a168bf834dc0400ebc095c9a764937af8ee1"
+    },
+    {
+      "path": "migrations/009_runtime_ontology.sql",
+      "source_sha256": "11fe5404dda0f9737295a367e00fc8d751222e07af6b5d48857f41aacc3d4678"
+    },
+    {
+      "path": "migrations/010_claim_lifecycle.sql",
+      "source_sha256": "a1c0a1be159124074aa8ee76c8b08aa1dc84b58cc87b9a60fb31b05ef8415077"
+    },
+    {
+      "path": "ontology/finance-v1.yaml",
+      "source_sha256": "50a81ba2f71f852d61f8413a3fbf525d0087cc92dceb6564cd0737ae7e60b707"
+    },
+    {
+      "path": "ontology/finance-v2.yaml",
+      "source_sha256": "dce9f6e7c82e6cf99065890c7f9aa92a1267d4288359b1def47f6bbea2cfe18b"
+    },
+    {
+      "path": "ontology/semantics-v1.yaml",
+      "source_sha256": "77ca671f2fe73d7f2421f9abf5edf74174652a6ff020b4cff12ccc7dc76ead8f"
+    },
+    {
+      "path": "examples/nvidia-tsmc-response.json",
+      "source_sha256": "e77687971a76ab28734c3170e757b5d3557a4e74e18b24b53370a1fd822db0e9"
+    },
+    {
+      "path": "examples/nvidia-tsmc-review.json",
+      "source_sha256": "07dfd9c334def792efb06b4b59cea2801b632e5f52bced6c18f85c4a7925ede5"
+    },
+    {
+      "path": "examples/synthetic-response.json",
+      "source_sha256": "33f819480838d94507792fa47a0c2e61468312cc9c0f7a8c7064628ad34a52c8"
+    },
+    {
+      "path": "sources/non-sec-sources.yaml",
+      "source_sha256": "358069d8f8b9e0a7bf0bb0a796b29170333b43bce42fbe365386bf38e07263e1"
+    },
+    {
+      "path": "pyproject.toml",
+      "source_sha256": "b4132f6f337cde9925d02e71d82e9be0f293651d2426bec5af369e2a23fcd5d6"
+    },
+    {
+      "path": "requirements.lock",
+      "source_sha256": "e18aaebe987763aae47328a3f78993664451c2d0f736f4ff6ba7238c9dec20a7"
+    },
+    {
+      "path": "Dockerfile",
+      "source_sha256": "e14b495acb410ffa2489fd6cefca14763be6041247e423db2eff8c5ee6130468"
+    },
+    {
+      "path": "compose.yaml",
+      "source_sha256": "9e1dc58bb02a3a52c8a091871a6aaa9007cb87ff41420ebd067769bc80d146dd"
+    },
+    {
+      "path": "evaluation/nvidia-pilot.json",
+      "source_sha256": "9533a4aa26b264530da213eb42380e9c9c9ff4cbe83c43bd883824bb9c5fc43b"
+    },
+    {
+      "path": "evaluation/multi-issuer-heldout-v1.json",
+      "source_sha256": "d596351f60158a3a7bece7177d971b8983be4ccd7b4a92c815cbd630e1e017e1"
+    },
+    {
+      "path": "evaluation/followup/schema-development-v1/draft-capacity-ontology.json",
+      "source_sha256": "891fe1a7c82ea5358e205bdfe7867b836b079f074e1d5a083dd5fd33f6de87f5"
+    },
+    {
+      "path": "evaluation/followup/schema-development-v1/draft-capacity-semantics.json",
+      "source_sha256": "3ba6963bfd5d1c34b43a8acf5065de46bde04c1957317f9f5d0fa46ad018bc20"
+    },
+    {
+      "path": "evaluation/followup/schema-development-v1/schema-candidates.json",
+      "source_sha256": "6caba5c5692b0578e0b89c1ec508a6a52d3b2eef545928b8e6998a1775d605f4"
+    },
+    {
+      "path": "evaluation/followup/schema-development-v1/selected-development-evidence.json",
+      "source_sha256": "44df4be9b2d8598db421af059ff09dd1d5dac09258d27d512372c0d7a76f7050"
+    },
+    {
+      "path": "evaluation/followup/schema-development-v1/review-package/baseline-catalog.json",
+      "source_sha256": "f2449d075eb3126dcf7ea20f7328a7d4e96a56f534de1eab3088ef947e51a9cb"
+    },
+    {
+      "path": "evaluation/followup/schema-development-v1/review-package/review-responses.json",
+      "source_sha256": "5ea580b84fb2df894e82020c32259979f7c5302eeb24d3f7294360306ab0e4a9"
+    },
+    {
+      "path": "evaluation/expanded/finalized/retrospective-v1/references.json",
+      "source_sha256": "a4ed244912d3f575fcad2849abac62f6af10c173c5f9eb760613e495093bc574"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-1/reviewer-1-relations.csv",
+      "source_sha256": "d5a674c70d80907f1a0baaeff06bba57555364d00bde48f58b6e466589babf1d"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-1/reviewer-1-ontology.csv",
+      "source_sha256": "b4ae8bf9c0df2f6da9c513e1c9a0be409ede96fbe3e08f11d5d4be953d1f7345"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-1/reviewer-1-metadata.csv",
+      "source_sha256": "b2567930cb54dd3b66946ca4f406dd61eafdc00018fa5bbecc0e54534f377460"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-1/ontology-evidence.csv",
+      "source_sha256": "5149cfa347a4cd0e689eb2079ed9b7195581206c4adba8709bf30ca874151887"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-2/reviewer-2-relations.csv",
+      "source_sha256": "9aa1e611d612a06589731489890f3a097a0f53c817271f46f4e72f987fff50e8"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-2/reviewer-2-ontology.csv",
+      "source_sha256": "ff1b42c83b6c4ab69d7eafbde5bc64ba194b925d858480ac17e4fd30a43ee492"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-2/reviewer-2-metadata.csv",
+      "source_sha256": "b157ed570b700a63e756089cc1285858f32394d4153e796505ec1ac524c7af63"
+    },
+    {
+      "path": "evaluation/expanded/distribution/reviewer-2/ontology-evidence.csv",
+      "source_sha256": "cdf63cd156bc7e2e62d349c7935cbab56cc0179a9b7eed494553660aefa51c4a"
+    },
+    {
+      "path": "scripts/intake_expanded_reviews.py",
+      "source_sha256": "0e2eb23dc2aeea887fd6525c91a77c6fb6e79d17521f9b2f691ef7240a1f7bc3"
+    },
+    {
+      "path": "scripts/score_licensing_qa.py",
+      "source_sha256": "d1056897a8fd89c2301a193a787de47ba6b11cee023e6e912f30397c81a9ae14"
+    },
+    {
+      "path": "scripts/repair_licensing_boundary_collection_v7.py",
+      "source_sha256": "1f5bd9877b0fe13868a889bfce5180bf9e3c44405479b8ad1021160182ea9896"
+    }
+  ]
+}

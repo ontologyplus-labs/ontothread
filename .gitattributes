@@ -1,0 +1,3 @@
+* text=auto
+# Preserve source CSV byte hashes and accept their original CRLF terminators.
+*.csv -text whitespace=cr-at-eol

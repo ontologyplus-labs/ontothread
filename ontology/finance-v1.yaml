@@ -1,0 +1,11 @@
+version: finance-v1
+entities: [Company, Product, Technology]
+predicates:
+  SUPPLIES_TO: {subject: [Company], object: [Company]}
+  CONTRACTS_MANUFACTURING_TO: {subject: [Company], object: [Company]}
+  MANUFACTURES: {subject: [Company], object: [Product]}
+  DEVELOPS: {subject: [Company], object: [Product, Technology]}
+  USES_TECHNOLOGY: {subject: [Company, Product], object: [Technology]}
+  PARTNERS_WITH: {subject: [Company], object: [Company]}
+  COMPETES_WITH: {subject: [Company], object: [Company]}
+  OWNS: {subject: [Company], object: [Company]}

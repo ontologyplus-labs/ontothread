@@ -1,0 +1,25 @@
+version: finance-v2
+entities: [Company, Person, Security, Product, Technology, Industry, Geography, FinancialMetric, Guidance, Risk, Event, Document, Claim]
+predicates:
+  SUPPLIES_TO: {subject: [Company], object: [Company]}
+  CUSTOMER_OF: {subject: [Company], object: [Company]}
+  CONTRACTS_MANUFACTURING_TO: {subject: [Company], object: [Company]}
+  MANUFACTURES: {subject: [Company], object: [Product]}
+  DEPENDS_ON: {subject: [Company, Product], object: [Company, Product, Technology]}
+  COMPETES_WITH: {subject: [Company], object: [Company]}
+  PARTNERS_WITH: {subject: [Company], object: [Company]}
+  OWNS: {subject: [Company], object: [Company, Product, Technology, Security]}
+  CEO_OF: {subject: [Person], object: [Company]}
+  BOARD_MEMBER_OF: {subject: [Person], object: [Company]}
+  OPERATES_IN: {subject: [Company], object: [Geography]}
+  EXPOSED_TO: {subject: [Company], object: [Company, Industry, Geography, Risk]}
+  USES_TECHNOLOGY: {subject: [Company, Product], object: [Technology]}
+  DEVELOPS: {subject: [Company], object: [Product, Technology]}
+  REPORTS: {subject: [Company], object: [FinancialMetric]}
+  GUIDES: {subject: [Company], object: [Guidance]}
+  REVISES_GUIDANCE: {subject: [Company], object: [Guidance]}
+  ACQUIRES: {subject: [Company], object: [Company, Product, Technology]}
+  INVESTS_IN: {subject: [Company], object: [Company, Product, Technology, Security]}
+  MENTIONS: {subject: [Document], object: [Company, Person, Security, Product, Technology, Industry, Geography, FinancialMetric, Guidance, Risk, Event]}
+  SUPPORTED_BY: {subject: [Claim], object: [Document]}
+  DERIVED_FROM: {subject: [Claim], object: [Claim, Document]}

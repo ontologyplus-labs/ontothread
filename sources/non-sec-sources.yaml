@@ -1,0 +1,47 @@
+version: non-sec-source-registry-v1
+policy:
+  default_ingestion: link_only
+  local_archive_requires: approved
+  extraction_requires: approved
+  note: Linking records provenance without asserting permission to copy or redistribute content.
+sources:
+  - issuer: NVIDIA Corporation
+    cik: "1045810"
+    source_type: official_investor_relations
+    url: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
+    materials: [earnings_release, presentation, financial_report]
+    owner: NVIDIA Corporation
+    archive_policy: pending_review
+    extraction_policy: pending_review
+  - issuer: Advanced Micro Devices, Inc.
+    cik: "2488"
+    source_type: official_investor_relations
+    url: https://ir.amd.com/financial-information/financial-results
+    materials: [earnings_release, presentation, webcast_transcript]
+    owner: Advanced Micro Devices, Inc.
+    archive_policy: pending_review
+    extraction_policy: pending_review
+  - issuer: Broadcom Inc.
+    cik: "1730168"
+    source_type: official_investor_relations
+    url: https://investors.broadcom.com/financial-information/financial-reports
+    materials: [earnings_release, financial_report]
+    owner: Broadcom Inc.
+    archive_policy: pending_review
+    extraction_policy: pending_review
+  - issuer: ASML Holding N.V.
+    cik: "937966"
+    source_type: official_investor_relations
+    url: https://www.investor.asml.com/quarterly-results
+    materials: [earnings_release, financial_statements, presentation, transcript]
+    owner: ASML Holding N.V.
+    archive_policy: pending_review
+    extraction_policy: pending_review
+  - issuer: Taiwan Semiconductor Manufacturing Company Limited
+    cik: "1046179"
+    source_type: official_investor_relations
+    url: https://investor.tsmc.com/english/quarterly-results/2026/q2
+    materials: [earnings_release, presentation, transcript]
+    owner: Taiwan Semiconductor Manufacturing Company Limited
+    archive_policy: pending_review
+    extraction_policy: pending_review

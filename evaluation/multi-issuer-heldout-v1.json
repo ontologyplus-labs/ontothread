@@ -1,0 +1,325 @@
+{
+  "version": "multi-issuer-company-relations-heldout-v1",
+  "annotation_author": "codex:source-review",
+  "annotation_status": "source-checked; independent human review pending",
+  "created_at": "2026-09-30T20:00:00+00:00",
+  "policy": {
+    "scope": "Positive, current, explicit Company-to-Company relationships in the supplied excerpt only; no neighboring context, external identity resolution, relationship timing, exclusivity, materiality or inferred counterparties.",
+    "quote_scoring": "A valid quote must occur once and contain the named company. Evidence support requires the complete annotated supporting sentence inside the proposal quote.",
+    "name_matching": "Case and whitespace normalization only; acronyms are separate surface names unless used directly in the gold annotation.",
+    "grouping": "Held-out source-checked cases span AMD, Broadcom, ASML and TSMC current annual filings. NVIDIA development cases are excluded. Labels await independent human review and cannot define a production release gate."
+  },
+  "cases": [
+    {
+      "id": "amd-named-foundries",
+      "issuer_name": "ADVANCED MICRO DEVICES INC",
+      "text": "We utilize Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of wafers for our HPC, FPGA and adaptive SoC products and GLOBALFOUNDRIES Inc. (GF), with respect to wafer purchases for our HPC products at the 12 nm and 14 nm technology nodes. Additionally, we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our ICs in the form of programmable logic devices.",
+      "text_hash": "9c734cb7c7d1b70a4cde1851a560e1138950880557ff1934a81495c9c9ee2feb",
+      "category": "manufacturing",
+      "annotation_notes": "Explicit current foundry and programmable-logic manufacturing relationships; a repeated TSMC mention still represents one directed relationship.",
+      "expected": [
+        {
+          "counterparty_name": "Taiwan Semiconductor Manufacturing Company Limited",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We utilize Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of wafers for our HPC, FPGA and adaptive SoC products and GLOBALFOUNDRIES Inc. (GF), with respect to wafer purchases for our HPC products at the 12 nm and 14 nm technology nodes."
+        },
+        {
+          "counterparty_name": "GLOBALFOUNDRIES Inc.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We utilize Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of wafers for our HPC, FPGA and adaptive SoC products and GLOBALFOUNDRIES Inc. (GF), with respect to wafer purchases for our HPC products at the 12 nm and 14 nm technology nodes."
+        },
+        {
+          "counterparty_name": "United Microelectronics Corporation",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "Additionally, we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our ICs in the form of programmable logic devices."
+        },
+        {
+          "counterparty_name": "Samsung Electronics Co., Ltd.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "Additionally, we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our ICs in the form of programmable logic devices."
+        }
+      ],
+      "source": {
+        "document_id": "0157b202-06a7-569c-bf13-ccde1744fbdf",
+        "passage_id": "66f3f9cd-058e-5bde-943b-ab312bb4868e",
+        "text_version_id": "a54aefb4-eb01-5664-b41c-67bb6a9a09e2",
+        "content_hash": "3b0b092492aebe7fbbad519832bb8a9aae616686bc5e1adbd5c58eb191e6cd55",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+        "start_offset": 48954,
+        "end_offset": 49400
+      }
+    },
+    {
+      "id": "amd-openai-partnership",
+      "issuer_name": "ADVANCED MICRO DEVICES INC",
+      "text": "This multiyear strategic partnership with OpenAI demonstrates our continued execution of hardware, software and full-stack solutions roadmaps.",
+      "text_hash": "245e022c5841851bdd81dfc37ea8b5e0ae6d396afeb0e5ecea03c7a205befaa8",
+      "category": "partnership",
+      "annotation_notes": "The filing explicitly calls the current multiyear arrangement a strategic partnership.",
+      "expected": [
+        {
+          "counterparty_name": "OpenAI",
+          "subject_is_issuer": true,
+          "predicate": "PARTNERS_WITH",
+          "supporting_quote": "This multiyear strategic partnership with OpenAI demonstrates our continued execution of hardware, software and full-stack solutions roadmaps."
+        }
+      ],
+      "source": {
+        "document_id": "0157b202-06a7-569c-bf13-ccde1744fbdf",
+        "passage_id": "3a21e5ca-ed07-51cf-92da-0170412f86f4",
+        "text_version_id": "a54aefb4-eb01-5664-b41c-67bb6a9a09e2",
+        "content_hash": "3b0b092492aebe7fbbad519832bb8a9aae616686bc5e1adbd5c58eb191e6cd55",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+        "start_offset": 17441,
+        "end_offset": 17583
+      }
+    },
+    {
+      "id": "amd-intel-competitor",
+      "issuer_name": "ADVANCED MICRO DEVICES INC",
+      "text": "Our primary competitor in the supply of CPUs and APUs is Intel.",
+      "text_hash": "def8f9ea4ae954c7f3732436bb5f1c6c35b28486718491516349d475ed6c33ec",
+      "category": "competition",
+      "annotation_notes": "Intel is explicitly identified as AMD’s primary competitor for CPUs and APUs.",
+      "expected": [
+        {
+          "counterparty_name": "Intel",
+          "subject_is_issuer": true,
+          "predicate": "COMPETES_WITH",
+          "supporting_quote": "Our primary competitor in the supply of CPUs and APUs is Intel."
+        }
+      ],
+      "source": {
+        "document_id": "0157b202-06a7-569c-bf13-ccde1744fbdf",
+        "passage_id": "d704ec2f-99ff-5cc5-8c12-7246717661c2",
+        "text_version_id": "a54aefb4-eb01-5664-b41c-67bb6a9a09e2",
+        "content_hash": "3b0b092492aebe7fbbad519832bb8a9aae616686bc5e1adbd5c58eb191e6cd55",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+        "start_offset": 45258,
+        "end_offset": 45321
+      }
+    },
+    {
+      "id": "broadcom-tsmc-foundry",
+      "issuer_name": "Broadcom Inc.",
+      "text": "The majority of our front-end wafer manufacturing operations is outsourced to external foundries, including Taiwan Semiconductor Manufacturing Company Limited (“TSMC”).",
+      "text_hash": "02be982600671283d137c8c9aeaa2329a326d517458525f494c936483c478182",
+      "category": "manufacturing",
+      "annotation_notes": "The filing explicitly identifies TSMC as an external foundry used for front-end wafer manufacturing.",
+      "expected": [
+        {
+          "counterparty_name": "Taiwan Semiconductor Manufacturing Company Limited",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "The majority of our front-end wafer manufacturing operations is outsourced to external foundries, including Taiwan Semiconductor Manufacturing Company Limited (“TSMC”)."
+        }
+      ],
+      "source": {
+        "document_id": "980a51c9-ed9a-5e96-a74c-b522f4406985",
+        "passage_id": "d6fc0916-fb16-5475-9464-f048e5fc9a70",
+        "text_version_id": "bc2b86ac-f390-5ffe-82b5-bf511c1f715e",
+        "content_hash": "7f065f03788e3120818154b8e01dae2b9830d5f04f0cff44d5d0091c9a451a98",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+        "start_offset": 39771,
+        "end_offset": 39939
+      }
+    },
+    {
+      "id": "broadcom-named-contract-manufacturers",
+      "issuer_name": "Broadcom Inc.",
+      "text": "We use third-party CMs for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd.",
+      "text_hash": "adf050942719bb854a44419371f4c707280c071a15de24db99057a798790cf3d",
+      "category": "manufacturing",
+      "annotation_notes": "Named third-party contract manufacturers perform assembly and test operations.",
+      "expected": [
+        {
+          "counterparty_name": "TSMC",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We use third-party CMs for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+        },
+        {
+          "counterparty_name": "Advanced Semiconductor Engineering, Inc.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We use third-party CMs for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+        },
+        {
+          "counterparty_name": "Foxconn Technology Group",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We use third-party CMs for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+        },
+        {
+          "counterparty_name": "Amkor Technology, Inc.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We use third-party CMs for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+        },
+        {
+          "counterparty_name": "Siliconware Precision Industries Co., Ltd.",
+          "subject_is_issuer": true,
+          "predicate": "CONTRACTS_MANUFACTURING_TO",
+          "supporting_quote": "We use third-party CMs for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+        }
+      ],
+      "source": {
+        "document_id": "980a51c9-ed9a-5e96-a74c-b522f4406985",
+        "passage_id": "d6fc0916-fb16-5475-9464-f048e5fc9a70",
+        "text_version_id": "bc2b86ac-f390-5ffe-82b5-bf511c1f715e",
+        "content_hash": "7f065f03788e3120818154b8e01dae2b9830d5f04f0cff44d5d0091c9a451a98",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+        "start_offset": 39940,
+        "end_offset": 40180
+      }
+    },
+    {
+      "id": "amd-anonymous-regulated-suppliers",
+      "issuer_name": "ADVANCED MICRO DEVICES INC",
+      "text": "Our operations and properties are subject to various United States and foreign laws and regulations, including those relating to materials used in our products and the manufacturing processes of our products, discharge of pollutants into the environment, the treatment, transport, storage and disposal of solid and hazardous wastes and remediation of contamination. These laws and regulations require our suppliers to obtain permits for operations in making our products, including the discharge of air pollutants and wastewater. Environmental laws are complex, change frequently and tend to become more stringent over time.",
+      "text_hash": "6b96bb8524f73946c50c4c8f1693b6d404a861d9f62972504114ca5f743fab0d",
+      "category": "anonymous",
+      "annotation_notes": "Suppliers are discussed as an unnamed class; no company relationship can be extracted.",
+      "expected": [],
+      "source": {
+        "document_id": "0157b202-06a7-569c-bf13-ccde1744fbdf",
+        "passage_id": "1075c93f-9fd4-503e-b372-66c683fcbbf7",
+        "text_version_id": "a54aefb4-eb01-5664-b41c-67bb6a9a09e2",
+        "content_hash": "3b0b092492aebe7fbbad519832bb8a9aae616686bc5e1adbd5c58eb191e6cd55",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+        "start_offset": 58557,
+        "end_offset": 59181
+      }
+    },
+    {
+      "id": "amd-generic-oem-partners",
+      "issuer_name": "ADVANCED MICRO DEVICES INC",
+      "text": "We focus on three types of OEM partners: multi-nationals, selected regional accounts and selected global and local system integrators, who target commercial and consumer end customers of all sizes. Large multi-nationals and regional accounts are the core of our OEM partners’ business; however, we are increasingly focused on the VAR channel, which resells OEM systems to the mid-market and the small and medium business (SMB) segments. Additionally, we have increased our focus on global system integrators, which resell OEM systems, coupled with their software and services solutions into Enterprise, High Performance Computing (HPC) and Cloud Service Provider customers. Our OEM customers include numerous foreign and domestic manufacturers of servers and workstations, desktops, notebooks, PC motherboards and game consoles.",
+      "text_hash": "35583a1ef48ed86a7eda50262d362df58d9a6496c88f134d64f6c23c27c54353",
+      "category": "anonymous",
+      "annotation_notes": "OEM partner categories and customers are unnamed.",
+      "expected": [],
+      "source": {
+        "document_id": "0157b202-06a7-569c-bf13-ccde1744fbdf",
+        "passage_id": "0a5fc252-b5d2-56b0-99b1-c410d12d7985",
+        "text_version_id": "a54aefb4-eb01-5664-b41c-67bb6a9a09e2",
+        "content_hash": "3b0b092492aebe7fbbad519832bb8a9aae616686bc5e1adbd5c58eb191e6cd55",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+        "start_offset": 40468,
+        "end_offset": 41296
+      }
+    },
+    {
+      "id": "broadcom-anonymous-material-suppliers",
+      "issuer_name": "Broadcom Inc.",
+      "text": "We purchase materials from hundreds of suppliers on a global basis. These purchases are generally on a purchase order basis and some parts are not readily available from alternate suppliers due to their unique design or the length of time and cost necessary for re-design or qualification. To address the potential disruption in our supply chain, we may use a number of techniques, including redesigning products for alternative components, making incremental or “lifetime” purchases, or qualifying more than one source of supply. Our long-term relationships with our suppliers allow us to proactively manage our technology development and product discontinuance plans, and to monitor our suppliers' financial health.",
+      "text_hash": "525f4ca8cdd9e619dcd96815b44a1cc17a6f78f7b2c8d93ec5b36977d6ad0042",
+      "category": "anonymous",
+      "annotation_notes": "Purchases from hundreds of suppliers establish no named counterparty.",
+      "expected": [],
+      "source": {
+        "document_id": "980a51c9-ed9a-5e96-a74c-b522f4406985",
+        "passage_id": "ec79bb87-df5e-50dc-a963-448a551c7cc0",
+        "text_version_id": "bc2b86ac-f390-5ffe-82b5-bf511c1f715e",
+        "content_hash": "7f065f03788e3120818154b8e01dae2b9830d5f04f0cff44d5d0091c9a451a98",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+        "start_offset": 40764,
+        "end_offset": 41481
+      }
+    },
+    {
+      "id": "broadcom-anonymous-competitors",
+      "issuer_name": "Broadcom Inc.",
+      "text": "The markets in which we participate are highly competitive. Our competitors range from large international companies offering a wide range of products to smaller companies specializing in narrow markets. We expect the trend toward consolidation within many industries to continue, as some of our competitors have merged with or been acquired by other competitors, while others have begun collaborating with each other. We also expect competition in these markets to continue to increase as existing competitors improve or expand their product offerings and as new companies, including some of our customers, enter the markets. Additionally, our ability to compete effectively depends on a number of factors, including: quality, technical performance, price, product features, product system compatibility, system-level design capability,",
+      "text_hash": "7bb19984c06efcba60157b2c9a15387aad22b6d439c6d347e3eff05341fa7eda",
+      "category": "anonymous",
+      "annotation_notes": "Competitors are described only as categories and prospective market entrants.",
+      "expected": [],
+      "source": {
+        "document_id": "980a51c9-ed9a-5e96-a74c-b522f4406985",
+        "passage_id": "ec929e8e-a301-5349-a21c-97be3456d677",
+        "text_version_id": "bc2b86ac-f390-5ffe-82b5-bf511c1f715e",
+        "content_hash": "7f065f03788e3120818154b8e01dae2b9830d5f04f0cff44d5d0091c9a451a98",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+        "start_offset": 41804,
+        "end_offset": 42641
+      }
+    },
+    {
+      "id": "asml-isolated-tsmc-table-fragment",
+      "issuer_name": "ASML HOLDING NV",
+      "text": "TSMC",
+      "text_hash": "00fb5022b75a76dd81bc588263dc8395b0a5ac7aa050138900d31c355baf12ea",
+      "category": "missing-context",
+      "annotation_notes": "An isolated company name does not state any allowed relationship.",
+      "expected": [],
+      "source": {
+        "document_id": "34692768-b639-59e3-8cf8-9851f5aeb44f",
+        "passage_id": "e6211083-e311-540f-8275-5865e8e73c70",
+        "text_version_id": "00eaade8-c8fa-5646-af5b-3c2390484701",
+        "content_hash": "b68253328f2a9c0ba260ab4b9cd2159314a2442ea636f5a8a5b980380f0c489f",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm",
+        "start_offset": 1463947,
+        "end_offset": 1463951
+      }
+    },
+    {
+      "id": "asml-generic-customer-partner-fragment",
+      "issuer_name": "ASML HOLDING NV",
+      "text": "closely with our customers and partners,",
+      "text_hash": "e801983d98b493537e2a69ed4f518589220e3c7a38e3f3f7681ddd1e39769266",
+      "category": "anonymous",
+      "annotation_notes": "Generic customers and partners are unnamed and the fragment supplies no predicate evidence.",
+      "expected": [],
+      "source": {
+        "document_id": "34692768-b639-59e3-8cf8-9851f5aeb44f",
+        "passage_id": "09babc90-e0e8-5645-b02d-344c88e18621",
+        "text_version_id": "00eaade8-c8fa-5646-af5b-3c2390484701",
+        "content_hash": "b68253328f2a9c0ba260ab4b9cd2159314a2442ea636f5a8a5b980380f0c489f",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm",
+        "start_offset": 5335,
+        "end_offset": 5375
+      }
+    },
+    {
+      "id": "tsmc-anonymous-alliance-partners",
+      "issuer_name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+      "text": "For years, we and our alliance partners have spent considerable effort, time and resources to build our technology",
+      "text_hash": "2a92de974a5dbcf50157bee208baaf3f150cb4efb5b0c2d30b627bb9d42fa9ce",
+      "category": "anonymous",
+      "annotation_notes": "Alliance partners are unnamed; no company identity may be inferred.",
+      "expected": [],
+      "source": {
+        "document_id": "50df8b20-8b3a-55fa-931c-3250a310ad2e",
+        "passage_id": "722c3ef2-d93a-58ab-b4ea-0338352fc4ee",
+        "text_version_id": "7de8cf23-682a-55fd-a280-53c3450452a1",
+        "content_hash": "571188555b991ae87ba0d63870dd22f2b826762fe32d511603c8d670e8702a34",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+        "start_offset": 103558,
+        "end_offset": 103672
+      }
+    },
+    {
+      "id": "tsmc-anonymous-supplier-ecosystem",
+      "issuer_name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+      "text": "business operation is an ecosystem of interconnected semiconductor fabs, employees and suppliers that provides us with",
+      "text_hash": "d84b991305017ed280acdec4783f86332b28e6800e67d29a67db31d90e26658e",
+      "category": "anonymous",
+      "annotation_notes": "The passage names only a supplier category.",
+      "expected": [],
+      "source": {
+        "document_id": "50df8b20-8b3a-55fa-931c-3250a310ad2e",
+        "passage_id": "42d3832f-b8ff-53a2-ae9b-5689db629cfc",
+        "text_version_id": "7de8cf23-682a-55fd-a280-53c3450452a1",
+        "content_hash": "571188555b991ae87ba0d63870dd22f2b826762fe32d511603c8d670e8702a34",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+        "start_offset": 29219,
+        "end_offset": 29337
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "status": "proposed_not_approved",
+  "candidates": [
+    {
+      "id": "capacity-entitlement",
+      "title": "HAS_CAPACITY_ENTITLEMENT_IN",
+      "type": "new_predicate",
+      "definition": "A named company has an explicitly stated present entitlement to an identified share or amount of production capacity associated with another named company. The underlying facility may be planned; the entitlement itself must be stated as present.",
+      "direction": "beneficiary Company -> company associated with the disclosed capacity (Company)",
+      "supporting_passages": [
+        "6c9ec7b5-e45c-5ce2-8df6-bf30456dd562",
+        "a1361b7d-ad33-5a9f-8dc6-b5186eef1cda"
+      ],
+      "boundary_passages": [
+        "7ef8fd14-01b0-5078-8c6a-00205d760961",
+        "7c088881-f337-552e-a499-0372a3473b84"
+      ],
+      "recurrence": {
+        "documents": 2,
+        "issuers": 1,
+        "reporting_periods": 2,
+        "limit": "Repeated disclosure of one project; not two independent rights or cross-issuer validation."
+      },
+      "existing_alternatives": [
+        "OWNS: equity ownership does not encode a capacity right",
+        "CONTRACTS_MANUFACTURING_TO: a manufacturing engagement does not encode entitlement",
+        "DEPENDS_ON: dependence is neither implied nor stated",
+        "Ownership percentage qualifier: same numeric value need not mean same legal right"
+      ],
+      "exclusions": [
+        "No edge from equity ownership alone",
+        "No current manufacturing activity inferred from entitlement to a planned facility",
+        "No commitment or investment treated as production capacity",
+        "No share inferred from ownership percentage",
+        "No direct supplier/customer edge inferred"
+      ],
+      "competency_questions": [
+        "Which companies have explicitly disclosed production-capacity entitlements, at which named company, and in what source?",
+        "Does a 10% ownership stake establish a separate 10% capacity right?"
+      ],
+      "evaluation": "Directed relation tuple; source entailment independently scored; percentage and planned-production context retained separately.",
+      "review_question": "Is this a reusable directed relationship, a qualifier on an existing fact, or an unnecessary concept? Identify the existing predicate if it already captures the capacity-right meaning."
+    },
+    {
+      "id": "facility",
+      "title": "Facility / OPERATES_FACILITY / LOCATED_IN",
+      "type": "entity_kind_and_predicates",
+      "definition": "An explicitly identified physical operating site, distinct from its owning organization and geographic location.",
+      "direction": "OPERATES_FACILITY: Company -> Facility; LOCATED_IN: Facility -> Geography",
+      "supporting_passages": [
+        "8a05d057-9b7d-5679-9775-9f368a33bb33",
+        "d14e2aad-2dc5-58a1-84fc-c3d6d016f03d",
+        "2ca8be79-5cd4-522e-affa-b496fce1afe7"
+      ],
+      "boundary_passages": [
+        "7c088881-f337-552e-a499-0372a3473b84",
+        "2c586c57-623c-5ecd-9add-a72c0e301e10",
+        "7ef8fd14-01b0-5078-8c6a-00205d760961"
+      ],
+      "recurrence": {
+        "documents": 3,
+        "issuers": 1,
+        "limit": "Repeated four-site disclosure; no independent multi-issuer support."
+      },
+      "existing_alternatives": [
+        "OPERATES_IN preserves geography but loses the site identity",
+        "Company is an organization, not its factory",
+        "Product and Technology are not physical sites"
+      ],
+      "exclusions": [
+        "Facility class definition alone does not establish an instance",
+        "City names alone are geographies",
+        "Table headings alone do not establish operation",
+        "Plans to build a site do not establish current operation",
+        "Ownership is not inferred from operation"
+      ],
+      "competency_questions": [
+        "Which explicitly identified facility is operated by a company, and where is that facility located?"
+      ],
+      "evaluation": "Blocked until the naming/identity rule is resolved. Require a source designation, or explicitly approve issuer-scoped descriptive site identity applied equally to both conditions.",
+      "review_question": "Do these location-qualified site descriptions identify facility instances under the frozen naming rule? If not, reject these positive examples and request named-site evidence."
+    },
+    {
+      "id": "customer-concentration",
+      "title": "CUSTOMER_BASE_CONCENTRATED_IN",
+      "type": "qualifier",
+      "definition": "A company-level customer-base fact explicitly says its customer base is concentrated in specified geographies. It does not identify individual customers or their revenue shares.",
+      "direction": "Attribute of issuer customer-base scope; geography values, not customer-company edges.",
+      "supporting_passages": [
+        "a891a671-302f-52aa-a255-5741ae7565ff",
+        "16af7963-b6fa-5470-8351-a213d4466c35",
+        "f1e69d65-4ccc-51ae-87aa-488c699d227a"
+      ],
+      "boundary_passages": [
+        "8a05d057-9b7d-5679-9775-9f368a33bb33"
+      ],
+      "existing_alternatives": [
+        "OPERATES_IN concerns the issuer, not the geography of its customer base",
+        "EXPOSED_TO does not encode concentration scope precisely"
+      ],
+      "exclusions": [
+        "Do not create unnamed customer entities",
+        "Do not infer geographic concentration from operating sites",
+        "Do not infer a revenue percentage"
+      ],
+      "evaluation": "Separate scoped-attribute task; current six-field relation adapter cannot encode this qualifier.",
+      "review_question": "Specify a supported base fact and its owner before approving the qualifier. Is a company-scoped attribute contract sufficient?"
+    },
+    {
+      "id": "discontinued-development",
+      "title": "DEVELOPMENT_DISCONTINUED",
+      "type": "lifecycle_qualifier",
+      "definition": "The source explicitly states that development of an identified program or technology was discontinued.",
+      "direction": "Lifecycle state of an evidenced development fact; not a positive current DEVELOPS assertion.",
+      "supporting_passages": [
+        "b45ddb88-eb5b-504e-9b79-3060087b04f6",
+        "ffcd29f8-75eb-5af6-92df-3eea7a4e017c"
+      ],
+      "boundary_passages": [
+        "7c088881-f337-552e-a499-0372a3473b84"
+      ],
+      "existing_alternatives": [
+        "Existing audited claim supersession/retraction may already preserve this information",
+        "A generic time qualifier does not state discontinuation by itself"
+      ],
+      "exclusions": [
+        "Do not infer an exact stop date",
+        "Do not turn an absence in a later filing into discontinuation",
+        "Do not keep a stopped program as current development"
+      ],
+      "evaluation": "Separate lifecycle task; do not claim additional current-positive relation recall.",
+      "review_question": "Does existing lifecycle machinery represent this without a schema addition? Is the program sufficiently identified?"
+    }
+  ],
+  "new_predicate_origin": "New development search, not an earlier reviewer-approved proposal"
+}

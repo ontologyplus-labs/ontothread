@@ -1,0 +1,50 @@
+[
+  {
+    "candidate_id": "capacity-entitlement",
+    "disposition": "",
+    "rationale": "",
+    "corrected_definition": "",
+    "subject_types": [],
+    "object_types": [],
+    "supported_example_ids": [],
+    "rejected_example_ids": [],
+    "counterexample_ids": [],
+    "unresolved_questions": ""
+  },
+  {
+    "candidate_id": "facility",
+    "disposition": "",
+    "rationale": "",
+    "corrected_definition": "",
+    "subject_types": [],
+    "object_types": [],
+    "supported_example_ids": [],
+    "rejected_example_ids": [],
+    "counterexample_ids": [],
+    "unresolved_questions": ""
+  },
+  {
+    "candidate_id": "customer-concentration",
+    "disposition": "",
+    "rationale": "",
+    "corrected_definition": "",
+    "subject_types": [],
+    "object_types": [],
+    "supported_example_ids": [],
+    "rejected_example_ids": [],
+    "counterexample_ids": [],
+    "unresolved_questions": ""
+  },
+  {
+    "candidate_id": "discontinued-development",
+    "disposition": "",
+    "rationale": "",
+    "corrected_definition": "",
+    "subject_types": [],
+    "object_types": [],
+    "supported_example_ids": [],
+    "rejected_example_ids": [],
+    "counterexample_ids": [],
+    "unresolved_questions": ""
+  }
+]

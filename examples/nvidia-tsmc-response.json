@@ -1,0 +1,67 @@
+{
+  "relationships": [
+    {
+      "claim": {
+        "id": "be8c300d-f285-5043-b83b-a7c6211344da",
+        "claim_id": "260557e9-056f-5284-bb50-b28e2a231424",
+        "revision": 1,
+        "subject_id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+        "object_id": "a4a60dbd-6062-584a-a745-cb386430b0c9",
+        "predicate": "CONTRACTS_MANUFACTURING_TO",
+        "assertion_class": "normalized_explicit",
+        "polarity": "positive",
+        "review_state": "accepted",
+        "source_available_at": "2026-02-26T04:59:59.999999Z",
+        "system_from": "2026-09-30T15:25:39.614725Z",
+        "system_to": null,
+        "valid_from": null,
+        "valid_to": null,
+        "reviewer": "codex:manual-source-review"
+      },
+      "evidence": [
+        {
+          "evidence": {
+            "assessment": "supported",
+            "claim_revision_id": "be8c300d-f285-5043-b83b-a7c6211344da",
+            "end_offset": 38375,
+            "id": "170552ad-7eda-5956-baf9-1913a346e3cc",
+            "passage_id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+            "quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+            "start_offset": 38201
+          },
+          "passage": {
+            "end_offset": 38724,
+            "id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+            "section_path": "Item 1. Business",
+            "start_offset": 37907,
+            "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66"
+          },
+          "text_version": {
+            "document_id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+            "id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+            "normalized_hash": "29031306b3995e40353f4fda78a6d91407f8b05ad45d2ba0b39a0138ea6ed045",
+            "parser_version": "html-blocks-v1"
+          },
+          "document": {
+            "accession": "0001045810-26-000021",
+            "acquired_at": "2026-09-30T15:22:53.701333Z",
+            "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+            "filename": "nvda-20260125.htm",
+            "form": "10-K",
+            "id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+            "issuer_id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+            "publication_basis": "conservative_end_of_filing_date_ET",
+            "publication_precision": "date",
+            "published_at": "2026-02-26T04:59:59.999999Z",
+            "source": "sec",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm"
+          }
+        }
+      ],
+      "validity_known": false
+    }
+  ],
+  "truncated": false,
+  "storage_mode": "sqlite_development",
+  "query_source": "authoritative_claim_store"
+}

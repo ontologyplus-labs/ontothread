@@ -1,0 +1,247 @@
+{
+  "version": "finance-v4-capacity-candidate-v1",
+  "parent_version": "expanded-controlled-v1",
+  "parent_schema_hash": "83fb9491f44c8b6be66bc049dbac2ce034c57cc8cf807b8536b1fae25d83063c",
+  "definitions": {
+    "entities": [
+      "Company",
+      "Person",
+      "Security",
+      "Product",
+      "Technology",
+      "Industry",
+      "Geography",
+      "FinancialMetric",
+      "Guidance",
+      "Risk",
+      "Event",
+      "Document",
+      "Claim"
+    ],
+    "predicates": {
+      "ACQUIRES": {
+        "object": [
+          "Company",
+          "Product",
+          "Technology"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "BOARD_MEMBER_OF": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Person"
+        ]
+      },
+      "CEO_OF": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Person"
+        ]
+      },
+      "COMPETES_WITH": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "CONTRACTS_MANUFACTURING_TO": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "CUSTOMER_OF": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "DEPENDS_ON": {
+        "object": [
+          "Company",
+          "Product",
+          "Technology"
+        ],
+        "subject": [
+          "Company",
+          "Product"
+        ]
+      },
+      "DERIVED_FROM": {
+        "object": [
+          "Claim",
+          "Document"
+        ],
+        "subject": [
+          "Claim"
+        ]
+      },
+      "DEVELOPS": {
+        "object": [
+          "Product",
+          "Technology"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "EXPOSED_TO": {
+        "object": [
+          "Company",
+          "Industry",
+          "Geography",
+          "Risk"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "GUIDES": {
+        "object": [
+          "Guidance"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "INVESTS_IN": {
+        "object": [
+          "Company",
+          "Product",
+          "Technology",
+          "Security"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "MANUFACTURES": {
+        "object": [
+          "Product"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "MENTIONS": {
+        "object": [
+          "Company",
+          "Person",
+          "Security",
+          "Product",
+          "Technology",
+          "Industry",
+          "Geography",
+          "FinancialMetric",
+          "Guidance",
+          "Risk",
+          "Event"
+        ],
+        "subject": [
+          "Document"
+        ]
+      },
+      "OPERATES_IN": {
+        "object": [
+          "Geography"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "OWNS": {
+        "object": [
+          "Company",
+          "Product",
+          "Technology",
+          "Security"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "PARTNERS_WITH": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "PROVIDES_ADVANCED_PACKAGING": {
+        "object": [
+          "Technology"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "REPORTS": {
+        "object": [
+          "FinancialMetric"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "REVISES_GUIDANCE": {
+        "object": [
+          "Guidance"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "SUPPLIES_TO": {
+        "object": [
+          "Company"
+        ],
+        "subject": [
+          "Company"
+        ]
+      },
+      "SUPPORTED_BY": {
+        "object": [
+          "Document"
+        ],
+        "subject": [
+          "Claim"
+        ]
+      },
+      "USES_TECHNOLOGY": {
+        "object": [
+          "Technology"
+        ],
+        "subject": [
+          "Company",
+          "Product"
+        ]
+      },
+      "HAS_CAPACITY_ENTITLEMENT_IN": {
+        "subject": [
+          "Company"
+        ],
+        "object": [
+          "Company"
+        ]
+      }
+    },
+    "version": "expanded-controlled-v1"
+  },
+  "schema_hash": "5f8501de8ce00a43bdf06bd2ac1c4b63cb3ae0855a0dc8a586e0ca059ab7a8df",
+  "status": "proposed_not_approved",
+  "activation": "not installed; no database or application configuration changed"
+}

@@ -1,0 +1,4 @@
+include LICENSE README.md DATA_NOTICE.md
+recursive-include src/fig/resources *.sql *.yaml
+recursive-include src/fig/web *.html *.css *.js
+prune tests

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "financial-intelligence-graph"
+version = "0.1.0"
+description = "Evidence-backed financial relationship graph"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.142.2", "uvicorn==0.54.0", "pydantic==2.13.5", "psycopg[binary]==3.3.6", "neo4j==6.3.1", "PyYAML==6.0.3", "httpx==0.28.1", "python-dotenv==1.2.3"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "httpx==0.28.1"]
+
+[project.scripts]
+fig = "fig.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fig = ["resources/*.sql", "resources/*.yaml", "web/*.html", "web/*.css", "web/*.js"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["integration: requires PostgreSQL and Neo4j"]

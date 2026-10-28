@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Financial Intelligence Graph · Research workspace</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to research</a>
+<aside class="navigation">
+  <a class="brand" href="/" aria-label="Financial Graph home"><span class="brand-mark">f<span>g</span></span><span>Financial<br>Graph</span></a>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="section-nav" aria-label="Workspace sections">
+    <a class="nav-link" href="#getting-started">Get started</a>
+    <a class="nav-link" href="#research">Questions</a>
+    <a class="nav-link" href="#relationships">Relationships</a>
+    <a class="nav-link" href="#paths">Paths</a>
+    <a class="nav-link" href="#sources">Sources</a>
+    <a class="nav-link" href="#review">Review candidates</a>
+    <a class="nav-link" href="#evidence">Evidence</a>
+    <a class="nav-link" href="/docs">API explorer ↗</a>
+  </nav>
+  <div class="nav-bottom"><span class="live-dot"></span> Local research workspace<p>Public filings.<br>Inspectable evidence.</p></div>
+</aside>
+<div class="shell">
+  <header class="topbar"><span>Research <span class="slash">/</span> Relationship explorer</span><span id="data-mode" class="workspace-tag">LOCAL WORKSPACE</span></header>
+  <main id="main">
+    <div class="page-heading"><div><div class="eyebrow">THE RESEARCH WORKSPACE</div><h1>Connections, with evidence.</h1><p>Explore documented company relationships and read the sources behind them.</p></div><span class="stage-tag">Up to three hops</span></div>
+    <section class="connection-bar" aria-label="Workspace connection">
+      <div><span id="connection-status" role="status">Connecting to local workspace…</span><p id="connection-detail">Checking database migrations and optional extraction configuration.</p></div>
+      <button id="retry-connection" class="button secondary" type="button" hidden>Retry connection</button>
+    </section>
+    <details id="getting-started" class="panel getting-started" open>
+      <summary>Get started <span>Local setup, demo, and research workflow</span></summary>
+      <div class="guide-grid">
+        <section><h2>1. Explore the offline demo</h2><p>In your activated Python environment, run:</p><pre><code>fig migrate
+fig demo</code></pre><p>With Docker, use <code>docker compose exec api fig demo</code>. Then select Refresh data. The demo contains fictional companies, a three-hop path, and two proposals to review. It needs no API key.</p></section>
+        <section><h2>2. Bring SEC filings</h2><p>Set <code>SEC_USER_AGENT</code> in your local <code>.env</code> to your app name and real contact email, then run:</p><pre><code>fig ingest-sec --cik 1045810</code></pre><p>Refresh data after ingestion. Select a company, search its filing, extract candidates, and review their exact quotes before accepting a relationship.</p></section>
+        <section><h2>3. Configure optional models</h2><p>Rule extraction works offline. To enable model extraction, set both <code>OPENAI_API_KEY</code> and <code>FIG_LLM_MODEL</code> in local configuration and restart the API.</p><p>Model calls require an explicit selection and may incur provider charges. Keep keys in server configuration.</p><a href="/docs">Explore the API contracts ↗</a><p>For a missing database, run <code>fig migrate</code> using the same configuration as the server, then retry the connection.</p></section>
+      </div>
+    </details>
+    <div id="global-error" class="notice error" role="alert" hidden></div>
+    <div id="corpus-notice" class="notice corpus-notice" role="status" hidden></div>
+    <div id="demo-notice" class="notice demo-notice" role="status" hidden>Synthetic demo included · Example companies and their relationships are fictional.</div>
+    <section class="controls" aria-label="Company selection">
+      <div class="company-field"><label for="company">Company</label><select id="company" disabled><option>Loading companies…</option></select></div>
+      <label class="demo-toggle"><input id="include-demo" type="checkbox"> Include synthetic demo</label>
+      <button id="refresh" class="button secondary" type="button">↻ Refresh data</button>
+    </section>
+    <div class="stats" aria-label="Coverage summary">
+      <div><span id="relationship-count">—</span><p>Reviewed relationships</p></div>
+      <div><span id="counterparty-count">—</span><p>Connected companies</p></div>
+      <div><span id="source-count">—</span><p>Cited filings</p></div>
+      <div class="stats-note"><span class="live-dot"></span><p>Every displayed relationship<br>links to supporting evidence.</p></div>
+    </div>
+    <section id="research" tabindex="-1" class="panel ask-panel" aria-labelledby="ask-title">
+      <div class="panel-heading"><div><div class="eyebrow">ASK FINANCIAL GRAPH</div><h2 id="ask-title">Research with inspectable evidence</h2></div><span class="badge neutral">Controlled planner</span></div>
+      <form id="ask-form" class="ask-form"><label class="sr-only" for="ask-question">Research question</label><input id="ask-question" maxlength="1000" value="Which companies have second-order exposure to TSMC?" placeholder="Ask about a registered company or a path between two companies"><select id="ask-hops" aria-label="Maximum research hops"><option value="2">2 hops</option><option value="3" selected>3 hops</option></select><button id="ask-button" class="button primary" type="submit" disabled>Research</button></form>
+      <p id="ask-status" class="search-status" role="status">Answers use accepted claims and require supported evidence on every edge.</p>
+      <div id="ask-results" class="ask-results"></div>
+    </section>
+    <div class="workspace">
+      <div class="research-column">
+        <section id="relationships" tabindex="-1" class="panel graph-panel" aria-labelledby="graph-title">
+          <div class="panel-heading"><div><div class="eyebrow">RELATIONSHIP MAP</div><h2 id="graph-title">Select a company</h2></div><span class="badge neutral">Reviewed claims</span></div>
+          <div class="graph-viewport" role="region" aria-label="Scrollable relationship map" tabindex="0"><div id="graph" class="graph" aria-live="polite"><div class="empty">Loading the relationship map…</div></div></div>
+          <div class="graph-footer"><span><i class="legend-dot"></i> Company</span><span>Arrows preserve relationship direction</span></div>
+          <div id="graph-note" class="notice" hidden></div>
+        </section>
+        <section id="paths" tabindex="-1" class="panel path-panel" aria-labelledby="path-title">
+          <div class="panel-heading"><div><div class="eyebrow">PATH EXPLORER</div><h2 id="path-title">Find documented connections</h2></div><span class="badge neutral">1–3 hops</span></div>
+          <div class="path-controls">
+            <div><label class="field-label" for="path-target">Target company</label><select id="path-target" disabled><option>Select a company first</option></select></div>
+            <div><label class="field-label" for="path-hops">Maximum hops</label><select id="path-hops"><option value="2">2 hops</option><option value="3">3 hops</option></select></div>
+            <button id="find-paths" class="button primary" type="button" disabled>Find paths</button>
+          </div>
+          <p id="path-status" class="search-status" role="status">Choose a different company to find evidence-backed paths.</p>
+          <div id="path-results" class="path-results"></div>
+        </section>
+        <section id="sources" tabindex="-1" class="panel search-panel" aria-labelledby="search-title">
+          <div class="panel-heading"><div><div class="eyebrow">SOURCE LIBRARY</div><h2 id="search-title">Search the filing</h2></div><span id="passage-count" class="muted"></span></div>
+          <label for="document" class="field-label">Source filing</label><select id="document" disabled><option>No filing selected</option></select>
+          <form id="search-form"><label for="query" class="sr-only">Search passages</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="query" placeholder="Search for a company, product, or phrase…" maxlength="200" autocomplete="off"><button id="search-button" class="button primary" type="submit" disabled>Search</button></div></form>
+          <div class="suggestions"><span>Try</span><button type="button" data-query="TSMC">TSMC</button><button type="button" data-query="manufacturing">manufacturing</button><button type="button" data-query="supply chain">supply chain</button></div>
+          <div id="search-status" class="search-status" role="status"></div>
+          <div id="search-results" class="search-results"></div>
+          <button id="load-more" class="button secondary more" type="button" hidden>Load more passages</button>
+          <div class="comparison-block">
+            <div class="eyebrow">FILING COMPARISON</div><h3>Compare relationship wording</h3>
+            <div class="comparison-controls">
+              <div><label class="field-label" for="compare-document">Compare selected filing with</label><select id="compare-document" disabled><option>No historical filing available</option></select></div>
+              <div><label class="field-label" for="compare-query">Company or phrase</label><input id="compare-query" value="TSMC" maxlength="200"></div>
+              <button id="compare-filings" class="button primary" type="button" disabled>Compare filings</button>
+            </div>
+            <p id="comparison-status" class="search-status" role="status">Select two filings from the same issuer.</p>
+            <div id="comparison-results" class="comparison-results"></div>
+          </div>
+        </section>
+        <section id="review" tabindex="-1" class="panel review-panel" aria-labelledby="review-title">
+          <div class="panel-heading"><div><div class="eyebrow">CANDIDATE REVIEW</div><h2 id="review-title">Proposals, before the graph.</h2></div></div>
+          <p class="muted">Check the quote, company identity, and direction before accepting a relationship.</p>
+          <label class="field-label" for="extraction-query">Passage phrase</label>
+          <input id="extraction-query" value="foundries" maxlength="200" placeholder="Find passages to extract from">
+          <label class="field-label" for="extraction-provider">Extractor</label>
+          <select id="extraction-provider"><option value="rules">Foundry rules · no API key needed</option><option value="openai" disabled>OpenAI · one matching passage</option></select>
+          <p id="extraction-help" class="muted"></p>
+          <label class="demo-toggle"><input id="retry-extraction" type="checkbox"> Retry failed extraction</label>
+          <button id="extract-candidates" class="button primary" type="button" disabled>Find candidates</button>
+          <label class="field-label" for="candidate-state">Review queue</label>
+          <select id="candidate-state"><option value="all">All candidates</option><option value="pending">Pending</option><option value="accepted">Accepted</option><option value="rejected">Rejected</option><option value="duplicate">Already recorded</option></select>
+          <div id="review-status" class="search-status" role="status"></div>
+          <div id="candidate-list"></div>
+          <button id="more-candidates" class="button secondary" type="button" hidden>Load more candidates</button>
+        </section>
+      </div>
+      <aside id="evidence" tabindex="-1" class="panel evidence-panel" aria-labelledby="evidence-title">
+        <div class="panel-heading"><div><div class="eyebrow">EVIDENCE DRAWER</div><h2 id="evidence-title">Read the source</h2></div><button id="close-evidence" class="icon-button" type="button" aria-label="Close selected evidence" hidden>×</button></div>
+        <div id="evidence-content" aria-live="polite"><div class="evidence-empty"><div class="paper-icon" aria-hidden="true">≡</div><h3>The source is one click away.</h3><p>Select a relationship in the map to inspect its supporting quote, filing, and review status.</p><div class="evidence-principle">Source statement → reviewed claim → relationship</div></div></div>
+      </aside>
+    </div>
+    <footer class="page-footer">Relationships describe documented connections. Economic exposure and materiality require further analysis.</footer>
+  </main>
+</div>
+</body>
+</html>

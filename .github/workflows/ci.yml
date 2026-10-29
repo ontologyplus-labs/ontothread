@@ -30,7 +30,7 @@ jobs:
           "$RUNNER_TEMP/ontothread-wheel-env/bin/ontothread" demo
           # Verify the original CLI alias against the same seeded workspace.
           "$RUNNER_TEMP/ontothread-wheel-env/bin/fig" demo
-          "$RUNNER_TEMP/ontothread-wheel-env/bin/python" -c "from importlib.resources import files; assert files('fig').joinpath('web/index.html').is_file(); assert files('fig').joinpath('resources/010_claim_lifecycle.sql').is_file()"
+          "$RUNNER_TEMP/ontothread-wheel-env/bin/python" -c "from importlib.resources import files; from fig.demo import load_snapshot; assert files('fig').joinpath('web/index.html').is_file(); assert files('fig').joinpath('resources/010_claim_lifecycle.sql').is_file(); assert load_snapshot()['version'] == 'sec-demo-v1'"
   native-integration:
     runs-on: ubuntu-latest
     services:

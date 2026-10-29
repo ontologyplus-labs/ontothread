@@ -30,24 +30,20 @@ function label(predicate) {return predicateLabels[predicate]||predicate.replaceA
 function latestRelationships(relations){const latest=new Map();for(const relation of relations){const key=[relationSubject(relation),relation.claim.predicate,relationObject(relation)].join('|');const date=relation.evidence[0]?.document?.published_at||relation.claim.source_available_at;const previous=latest.get(key);const previousDate=previous?.evidence[0]?.document?.published_at||previous?.claim?.source_available_at;if(!previous||date>previousDate)latest.set(key,relation);}return Array.from(latest.values());}
 function resetEvidence() {state.evidenceGeneration++; state.activeClaim=null; $('close-evidence').hidden=true; $('evidence-title').textContent='Read the source'; const box=$('evidence-content');box.replaceChildren();const inner=element('div','evidence-empty');inner.append(element('div','paper-icon','≡'),element('h3',null,'The source is one click away.'),element('p',null,'Select a relationship in the map to inspect its supporting quote, filing, and review status.'),element('div','evidence-principle','Source statement → reviewed claim → relationship'));box.append(inner);document.querySelectorAll('.edge-button').forEach(b=>b.classList.remove('active'));}
 function resetSearch() {state.searchGeneration++;state.nextOffset=null;state.searchQuery='';$('query').value='';$('search-results').replaceChildren();$('search-status').textContent='Search returns original passages. Results are not automatically accepted as claims.';$('load-more').hidden=true;$('search-button').disabled=false;}
-async function loadCompanies(discoverDemo=false) {
+async function loadCompanies() {
   const previous=state.selected?.id;
-  $('refresh').disabled=true;$('include-demo').disabled=true;$('company').disabled=true;setNotice('global-error','');setNotice('corpus-notice','');
+  $('refresh').disabled=true;$('include-demo').disabled=true;$('company').disabled=true;setNotice('global-error','');setNotice('corpus-notice','');$('sec-demo-notice').hidden=true;
   try {
     const real=await api('/v1/entities?limit=100&include_synthetic=false');
     let data=$('include-demo').checked?await api('/v1/entities?limit=100&include_synthetic=true'):real;
-    if(discoverDemo&&!real.entities.length&&!data.entities.length){
-      const demo=await api('/v1/entities?limit=100&include_synthetic=true');
-      if(demo.entities.length){data=demo;$('include-demo').checked=true;}
-    }
     $('demo-notice').hidden=!$('include-demo').checked;
     state.companies=data.entities;$('company').replaceChildren();
-    if(!data.entities.length){$('company').append(element('option',null,'No companies in the corpus'));state.generation++;state.selected=null;state.entities=new Map();state.relationships=[];state.documents=[];renderGraph();renderDocuments();resetEvidence();resetSearch();resetPaths();clearCandidates();$('ask-button').disabled=true;$('search-button').disabled=true;$('data-mode').textContent='EMPTY WORKSPACE';['relationship-count','counterparty-count','source-count'].forEach(id=>$(id).textContent='0');setNotice('corpus-notice','No companies are visible. Run ontothread demo and Refresh data, include an existing synthetic demo, or ingest SEC filings using the Get started guide.');$('getting-started').open=true;return;}
+    if(!data.entities.length){$('company').append(element('option',null,'No companies in the corpus'));state.generation++;state.selected=null;state.entities=new Map();state.relationships=[];state.documents=[];renderGraph();renderDocuments();resetEvidence();resetSearch();resetPaths();clearCandidates();$('ask-button').disabled=true;$('search-button').disabled=true;$('data-mode').textContent='EMPTY WORKSPACE';['relationship-count','counterparty-count','source-count'].forEach(id=>$(id).textContent='0');setNotice('corpus-notice','No SEC companies are visible. Run ontothread demo to load the real filing snapshot, then Refresh data, or ingest SEC filings using the Get started guide.');$('getting-started').open=true;return;}
     const realIds=new Set(real.entities.map(company=>company.id));
     for(const company of data.entities){const option=element('option',null,company.canonical_name+(realIds.has(company.id)?'':' · synthetic'));option.value=company.id;$('company').append(option);}
     $('ask-button').disabled=false;
     if(!real.entities.length&&!previous)$('ask-question').value='Show paths between Example Designer and Example Customer';
-    const chosen=data.entities.find(e=>e.id===previous)||(!real.entities.length&&data.entities.find(e=>e.canonical_name==='Example Designer'))||data.entities[0];$('company').value=chosen.id;$('company').disabled=false;
+    const chosen=data.entities.find(e=>e.id===previous)||data.entities.find(e=>e.slug==='sec-cik-1045810')||(!real.entities.length&&data.entities.find(e=>e.canonical_name==='Example Designer'))||data.entities[0];$('company').value=chosen.id;$('company').disabled=false;
     await selectCompany(chosen.id);
     if(data.truncated)setNotice('global-error','The selector shows the first 100 companies in this corpus.');
   }catch(error){state.generation++;state.selected=null;state.companies=[];state.relationships=[];state.documents=[];resetPaths();resetEvidence();resetSearch();renderGraph();renderDocuments();clearCandidates();$('ask-button').disabled=true;$('search-button').disabled=true;setNotice('global-error',error.message);$('company').replaceChildren(element('option',null,'Companies unavailable'));}
@@ -63,7 +59,8 @@ async function selectCompany(id) {
     const documents=new Map(corpus.documents.filter(d=>d.issuer_id===id&&($('include-demo').checked||d.source==='sec')).map(d=>[d.id,d]));
     for(const relation of neighbors.relationships)for(const evidence of relation.evidence)documents.set(evidence.document.id,evidence.document);
     state.documents=Array.from(documents.values());
-    $('data-mode').textContent=state.documents.length&&state.documents.every(doc=>doc.source!=='sec')?'SYNTHETIC DEMO':'SEC DOCUMENTS';
+    $('sec-demo-notice').hidden=!state.documents.some(doc=>doc.content_scope==='excerpt');
+    $('data-mode').textContent=state.documents.length&&state.documents.every(doc=>doc.source!=='sec')?'SYNTHETIC TEST FIXTURES':state.documents.some(doc=>doc.content_scope==='excerpt')?'SEC EXCERPT SNAPSHOT':'SEC DOCUMENTS';
     $('relationship-count').textContent=String(state.relationships.length)+(neighbors.truncated?'+':'');
     $('counterparty-count').textContent=new Set(state.relationships.map(r=>relationSubject(r)===neighbors.canonical_entity_id?relationObject(r):relationSubject(r))).size;
     $('source-count').textContent=new Set(neighbors.relationships.flatMap(r=>r.evidence.map(e=>e.document.id))).size;
@@ -122,7 +119,7 @@ function renderGraph() {
 function renderDocuments() {
   const select=$('document');select.replaceChildren();
   if(!state.documents.length){select.append(element('option',null,'No source filing available'));select.disabled=true;$('query').disabled=true;$('search-button').disabled=true;$('passage-count').textContent='';updateComparisonDocuments();clearCandidates();return;}
-  for(const doc of state.documents){const option=element('option',null,`${doc.form} · ${sourceDate(doc.published_at)}${doc.issuer_id!==state.selected?.id?' · cited counterparty filing':''}`);option.value=doc.id;select.append(option);}
+  for(const doc of state.documents){const option=element('option',null,`${doc.form} · ${sourceDate(doc.published_at)}${doc.content_scope==='excerpt'?' · excerpt':''}${doc.issuer_id!==state.selected?.id?' · cited counterparty filing':''}`);option.value=doc.id;select.append(option);}
   select.disabled=false;$('query').disabled=false;$('search-button').disabled=false;updateComparisonDocuments();
 }
 function updateComparisonDocuments(){
@@ -145,7 +142,7 @@ async function compareFilings(){
 async function loadDocumentMetadata() {
   const id=$('document').value;const generation=state.generation;if(!id)return;
   $('passage-count').textContent='';
-  try{const document=await api('/v1/documents/'+id);if(generation!==state.generation||$('document').value!==id)return;const count=document.text_versions.reduce((total,v)=>total+v.passage_count,0);$('passage-count').textContent=count.toLocaleString()+' passages';}
+  try{const document=await api('/v1/documents/'+id);if(generation!==state.generation||$('document').value!==id)return;const count=document.text_versions.reduce((total,v)=>total+v.passage_count,0);$('passage-count').textContent=count.toLocaleString()+(document.content_scope==='excerpt'?' selected excerpt':' passages');}
   catch{if(generation===state.generation&&$('document').value===id)$('passage-count').textContent='Coverage unavailable';}
 }
 async function runSearch(append=false) {
@@ -165,7 +162,7 @@ async function runSearch(append=false) {
 function snippet(text,query){const index=text.toLowerCase().indexOf(query.toLowerCase());const start=Math.max(0,index-80);const end=Math.min(text.length,start+270);return(start?'…':'')+text.slice(start,end)+(end<text.length?'…':'');}
 function detailsRow(list,name,value){const row=element('div','detail-row');row.append(element('dt',null,name),element('dd',null,value));list.append(row);}
 function drawerBase(title){$('close-evidence').hidden=false;$('evidence-title').textContent=title;const body=element('div','evidence-body');$('evidence-content').replaceChildren(body);return body;}
-function sourceDetails(body,doc){const list=element('dl','evidence-details');detailsRow(list,'Filing',doc.form);detailsRow(list,'Published',sourceDate(doc.published_at)+(doc.publication_precision==='date'?' · date precision':''));detailsRow(list,'Accession',doc.accession);detailsRow(list,'Source',doc.source==='sec'?'SEC EDGAR':'Synthetic fixture');body.append(list);const url=safeSourceLink(doc.source_url);if(url&&doc.source==='sec'){const anchor=element('a','source-link','Open source filing ↗');anchor.href=url;anchor.target='_blank';anchor.rel='noopener noreferrer';body.append(anchor);}}
+function sourceDetails(body,doc){const list=element('dl','evidence-details');detailsRow(list,'Filing',doc.form);detailsRow(list,'Published',sourceDate(doc.published_at)+(doc.publication_precision==='date'?' · date precision':''));detailsRow(list,'Accession',doc.accession);detailsRow(list,'Source',doc.source==='sec'?'SEC EDGAR':'Synthetic fixture');if(doc.content_scope==='excerpt'){detailsRow(list,'Archived content','Selected excerpt only');detailsRow(list,'Excerpt SHA-256',doc.content_hash);detailsRow(list,'Original filing SHA-256',doc.excerpt_origin.content_hash);detailsRow(list,'Original text offsets',`${doc.excerpt_origin.start_offset}–${doc.excerpt_origin.end_offset}`);}body.append(list);if(doc.content_scope==='excerpt')body.append(element('div','caveat','Historical SEC excerpt snapshot, not a complete filing or live company model. The original filing hash and text offsets preserve provenance. Development source reviews are not independent human annotations.'));const url=safeSourceLink(doc.source_url);if(url&&doc.source==='sec'){const anchor=element('a','source-link','Open source filing ↗');anchor.href=url;anchor.target='_blank';anchor.rel='noopener noreferrer';body.append(anchor);}}
 function contextParagraph(body,passage,evidence=null){body.append(element('div','label-small','Surrounding passage'));const text=element('div','passage-context');if(evidence){const chars=Array.from(passage.text);const start=evidence.start_offset-passage.start_offset;const end=evidence.end_offset-passage.start_offset;if(start>=0&&end<=chars.length&&chars.slice(start,end).join('')===evidence.quote){text.append(document.createTextNode(chars.slice(0,start).join('')),element('mark',null,chars.slice(start,end).join('')),document.createTextNode(chars.slice(end).join('')));}else{text.textContent=passage.text;body.append(element('div','caveat','The quote could not be highlighted in this passage version.'));}}else text.textContent=passage.text;body.append(text);}
 async function openRelationship(relation) {
   const generation=++state.evidenceGeneration;state.activeClaim=relation.claim.id;document.querySelectorAll('.edge-button').forEach(b=>b.classList.toggle('active',b.dataset.claim===relation.claim.id));
@@ -247,13 +244,13 @@ async function initializeWorkspace(){
   const mode=health.value.storage_mode==='sqlite_development'?'SQLite local adapter':'PostgreSQL';
   $('connection-detail').textContent=`${mode} · migrations ${health.value.migration} · ${reviewState.configured?'optional model configured':'no model required for demo or rules'}.`;
   if(configuration.status==='rejected'){$('retry-connection').hidden=false;$('retry-connection').disabled=false;}
-  await loadCompanies(true);
+  await loadCompanies();
 }
 $('retry-connection').addEventListener('click',initializeWorkspace);
 $('ask-form').addEventListener('submit',askResearch);
 $('company').addEventListener('change',()=>selectCompany($('company').value));
 $('include-demo').addEventListener('change',()=>loadCompanies());
-$('refresh').addEventListener('click',()=>loadCompanies(true));
+$('refresh').addEventListener('click',()=>loadCompanies());
 $('find-paths').addEventListener('click',findPaths);
 $('path-target').addEventListener('change',()=>{$('path-results').replaceChildren();$('path-status').textContent='Select Find paths to query accepted claims.';});
 $('compare-filings').addEventListener('click',compareFilings);

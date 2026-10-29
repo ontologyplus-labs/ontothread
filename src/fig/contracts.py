@@ -130,6 +130,24 @@ class OntologyProposalRebase(BaseModel):
     reviewer: str = Field(min_length=1,max_length=120)
     notes: str = Field(min_length=10,max_length=4000)
 
+class ExcerptOrigin(BaseModel):
+    """Original filing/text identity and offsets for a deliberately partial archive."""
+    model_config = ConfigDict(extra="forbid")
+    document_id: UUID
+    text_version_id: UUID
+    content_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
+    normalized_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
+    parser_version: str
+    start_offset: int = Field(ge=0)
+    end_offset: int = Field(gt=0)
+
+    @model_validator(mode="after")
+    def ordered_offsets(self):
+        if self.end_offset <= self.start_offset:
+            raise ValueError("excerpt origin must have ordered offsets")
+        return self
+
+
 class Document(TimedRecord):
     issuer_id: UUID
     source: Literal["synthetic_fixture", "sec"]
@@ -143,6 +161,14 @@ class Document(TimedRecord):
     publication_precision: Literal["timestamp", "date"] = "timestamp"
     publication_basis: str = "source_timestamp"
     reporting_period: str | None = None
+    content_scope: Literal["full_document", "excerpt"] = "full_document"
+    excerpt_origin: ExcerptOrigin | None = None
+
+    @model_validator(mode="after")
+    def excerpt_provenance(self):
+        if (self.content_scope == "excerpt") != (self.excerpt_origin is not None):
+            raise ValueError("excerpt documents require original filing provenance")
+        return self
 
 class TextVersion(Record):
     document_id: UUID

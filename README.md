@@ -36,11 +36,25 @@ uvicorn fig.api:app --host 127.0.0.1 --port 8000
 Open [the research workspace](http://127.0.0.1:8000/) or
 [the API explorer](http://127.0.0.1:8000/docs).
 
-**The demo is offline and synthetic:** four fictional companies, a three-edge
-chain, and two proposals you can extract and review. It uses no SEC requests,
-model calls, or API keys. Repeat `ontothread demo` safely without resetting reviews.
-Start with “Example Designer” and the suggested question; search for `manufacturing`
-or find candidates using `foundries`.
+**The default demo uses real SEC evidence:** four selected filing excerpts from
+NVIDIA, AMD, and Broadcom, five reviewed manufacturing relationships involving
+TSMC and Samsung, and two proposals from a later NVIDIA filing for explicit review.
+It runs offline with no SEC requests, model calls, or API keys. Repeat
+`ontothread demo` safely without resetting review decisions.
+
+Start with NVIDIA and “Show paths between NVIDIA and Broadcom,” then inspect the
+TSMC connection and its exact quotes. The path explorer also supports a three-hop
+route from NVIDIA through TSMC and AMD to Samsung. These paths preserve each
+claim's direction; they do not assert a direct relationship between every company.
+
+This is a **historical excerpt snapshot**, using disclosures filed December 2024–
+February 2026, not complete filings or live company coverage. Original filing links,
+hashes, normalized-text offsets, and development reviewer attribution are retained.
+The source reviews were performed by Codex during development, not independent
+human annotators. See [the real demo manifest and provenance](docs/real-demo.md).
+
+Synthetic data is available explicitly for tests with `ontothread demo --synthetic`
+or the minimal `ontothread seed-fixture`; it is hidden in the UI by default.
 
 No `.env` is required. Defaults use `data/fixture.sqlite3` and `data/archive`.
 For optional settings, copy `.env.example` to `.env`. Explicit environment variables

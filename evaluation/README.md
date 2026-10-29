@@ -19,5 +19,7 @@ names preserve test imports; acquisition/scoring entry points requiring excluded
 runs were removed where only pure helpers are needed.
 
 These fixtures support regression checks, not claims of independent benchmark accuracy.
-The browser demo is fictional and does not ingest any of these SEC excerpts.
+The default browser demo is a separate, packaged real SEC excerpt snapshot in
+`src/fig/resources/sec-demo-v1.json`, with five development-reviewed claims. It does
+not ingest these evaluation fixtures. Synthetic data remains an explicit test option.
 See `DATA_NOTICE.md` for attribution boundaries.

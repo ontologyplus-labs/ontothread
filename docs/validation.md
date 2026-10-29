@@ -41,3 +41,36 @@ as **OntoThread by OntologyPlus**. The rebrand was validated with:
   attribution, plus the tracked-source release audit.
 
 Existing Docker, Python 3.13, and hosted-publication limitations above still apply.
+
+## Real SEC demo validation — October 29, 2026
+
+The default demo now loads the bundled `sec-demo-v1` snapshot: five real companies,
+four SEC filing excerpts, five development-reviewed claims, and two pending proposals.
+Synthetic fixtures require explicit CLI/UI opt-in. Earlier synthetic-demo validation
+above records the previous release behavior.
+
+- **249 tests passed, no skips**, including the nine isolated PostgreSQL/Neo4j checks.
+  The default CLI demo test blocks socket connections and checks both command aliases.
+- Re-exporting from the read-only research database and original archived SEC HTML
+  reproduced the bundled snapshot byte-for-byte. Normalization, source hashes,
+  exact quotes, and provenance offsets were verified.
+- In-app browser checks covered the default real-data view, two-citation research,
+  direct and three-hop paths, exact quotes, SEC source links, passage search and its
+  empty state, cached rules extraction, explicit accept/reject decisions, decision
+  history and reload persistence, keyboard activation, and 390 px layout without
+  horizontal page overflow. Review actions used a disposable database. No browser
+  warnings or errors were reported.
+- The automated browser acceptance script was updated for real data and passed its
+  JavaScript syntax check; its current version is configured in CI. The in-app
+  browser checks above were run locally, rather than rerunning the standalone script.
+- The rebuilt wheel was installed into a separate environment and exercised from
+  an empty working directory: migrations, both CLI aliases, four real excerpt
+  archives, original provenance, packaged assets/resources, health, API explorer,
+  and the two-citation research answer all passed.
+- The existing preview database was seeded without deleting earlier synthetic
+  fixtures. Its open browser now defaults to NVIDIA and real SEC evidence; the
+  test-fixture toggle remains unchecked.
+
+The existing Starlette/httpx warning and Docker/Python 3.13/CI execution limitations
+above still apply. The snapshot is historical, excerpt-only, and source-reviewed
+by Codex during development; it is not an independent human annotation dataset.

@@ -25,3 +25,13 @@ and audited decisions, and the versioned ontology resources for allowed relation
 For an isolated API instance, call `create_app(Settings(database_url, archive_dir))`.
 Do not bypass the review queue or edit stored claims to add new extraction strategies.
 General document adapters and hosted multi-user services are deferred.
+
+## Curated SEC excerpt demo
+
+`fig.demo` validates and seeds the packaged real-data snapshot. `Document.content_scope`
+identifies excerpts; `excerpt_origin` records the original document/text IDs, full
+filing hash, original normalized hash and parser, and source text offsets. The current
+content hash identifies the archived excerpt bytes. These are additive `/v1` document
+metadata fields; older records default to `full_document` with no excerpt origin.
+The existing JSON-backed document store requires no schema migration. Excerpt IDs
+are distinct from full-ingestion IDs, so a snapshot can coexist with complete filings.

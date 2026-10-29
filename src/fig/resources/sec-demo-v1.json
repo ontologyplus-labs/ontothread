@@ -1,0 +1,319 @@
+{
+  "snapshot_sha256": "335cd3a821cffd18f118821e7884cda1a317f33dd357bad93df757f820f9e29c",
+  "snapshot": {
+    "version": "sec-demo-v1",
+    "description": "Historical SEC filing excerpts for NVIDIA, AMD and Broadcom; TSMC and Samsung counterparties.",
+    "review_status": "Existing Codex source reviews from development; not independent human annotations.",
+    "scope": "Selected excerpts only, not complete filings or a live company model. No financial materiality is asserted.",
+    "entities": [
+      {
+        "canonical_name": "Samsung Electronics Co., Ltd.",
+        "id": "4a5ec703-f4b5-5610-9481-60a037343e3a",
+        "kind": "Company",
+        "slug": "company-3e564462b266d712",
+        "status": "reviewed"
+      },
+      {
+        "canonical_name": "NVIDIA CORP",
+        "id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+        "kind": "Company",
+        "slug": "sec-cik-1045810",
+        "status": "reviewed"
+      },
+      {
+        "canonical_name": "Broadcom Inc.",
+        "id": "a37f5511-94b9-589d-beea-1575fdec2bff",
+        "kind": "Company",
+        "slug": "sec-cik-1730168",
+        "status": "reviewed"
+      },
+      {
+        "canonical_name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+        "id": "a9a75a0a-b60c-5e3f-9062-ab2604afce40",
+        "kind": "Company",
+        "slug": "sec-cik-1046179",
+        "status": "reviewed"
+      },
+      {
+        "canonical_name": "ADVANCED MICRO DEVICES INC",
+        "id": "cf7d305b-2720-5d01-96a5-e8cdda0d79cd",
+        "kind": "Company",
+        "slug": "sec-cik-2488",
+        "status": "reviewed"
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "accession": "0001045810-25-000023",
+          "acquired_at": "2026-09-30T18:47:27.022016Z",
+          "content_hash": "1150508d5ffe034692dfd26923d8f06b8d42ec33c564a61679e0f64e73ca246d",
+          "filename": "nvda-20250126.htm",
+          "form": "10-K",
+          "id": "737ba7e2-ee45-5993-bee6-d0083830b3c0",
+          "issuer_id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+          "publication_basis": "conservative_end_of_filing_date_ET",
+          "publication_precision": "date",
+          "published_at": "2025-02-27T04:59:59.999999Z",
+          "source": "sec",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm"
+        },
+        "text_version": {
+          "id": "83c7d0f7-9833-5f2c-8b75-78899bacb2a9",
+          "parser_version": "html-blocks-v1",
+          "normalized_hash": "83354663b1858868e6b7badaa59e34609da5d6db8d37514fe05b623955a1660c"
+        },
+        "passage": {
+          "end_offset": 40664,
+          "id": "912198bb-4237-5658-ae96-1ec08321635d",
+          "section_path": "Item 1. Business",
+          "start_offset": 39894,
+          "text_version_id": "83c7d0f7-9833-5f2c-8b75-78899bacb2a9"
+        },
+        "text": "We have expanded our supplier relationships to build redundancy and resilience in our operations to provide long-term manufacturing capacity aligned with growing customer demand. Our supply chain is mainly concentrated in the Asia-Pacific region. We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers. We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung. We utilize CoWoS technology for semiconductor packaging. We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products.",
+        "text_hash": "9e1cce94790655779db2711e5d840e32a9089c817d95fc2d117ca23eeb8616bb",
+        "reviews": [
+          {
+            "claim": {
+              "assertion_class": "normalized_explicit",
+              "claim_id": "3d9d914a-235f-5615-be04-88ac9f9e1818",
+              "id": "78a2e514-f555-54fa-9608-d78db94f1fcd",
+              "object_id": "a9a75a0a-b60c-5e3f-9062-ab2604afce40",
+              "polarity": "positive",
+              "predicate": "CONTRACTS_MANUFACTURING_TO",
+              "review_state": "accepted",
+              "reviewer": "codex:historical-source-review",
+              "revision": 1,
+              "source_available_at": "2025-02-27T04:59:59.999999Z",
+              "subject_id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+              "system_from": "2026-09-30T19:12:50.055692Z",
+              "system_to": null,
+              "valid_from": null,
+              "valid_to": null
+            },
+            "evidence": {
+              "assessment": "supported",
+              "claim_revision_id": "78a2e514-f555-54fa-9608-d78db94f1fcd",
+              "end_offset": 40315,
+              "id": "0a538614-3221-5ce6-bde6-813b56351e24",
+              "passage_id": "912198bb-4237-5658-ae96-1ec08321635d",
+              "quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+              "start_offset": 40141
+            }
+          },
+          {
+            "claim": {
+              "assertion_class": "normalized_explicit",
+              "claim_id": "71a8fc11-5427-5a41-b8cb-23566f4c4613",
+              "id": "ba304302-1f8a-5eb1-a8e5-3e7854c83872",
+              "object_id": "4a5ec703-f4b5-5610-9481-60a037343e3a",
+              "polarity": "positive",
+              "predicate": "CONTRACTS_MANUFACTURING_TO",
+              "review_state": "accepted",
+              "reviewer": "codex:historical-source-review",
+              "revision": 1,
+              "source_available_at": "2025-02-27T04:59:59.999999Z",
+              "subject_id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+              "system_from": "2026-09-30T19:12:50.061304Z",
+              "system_to": null,
+              "valid_from": null,
+              "valid_to": null
+            },
+            "evidence": {
+              "assessment": "supported",
+              "claim_revision_id": "ba304302-1f8a-5eb1-a8e5-3e7854c83872",
+              "end_offset": 40315,
+              "id": "0eec20cd-32f1-5a77-b5b7-3bddd93098d3",
+              "passage_id": "912198bb-4237-5658-ae96-1ec08321635d",
+              "quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+              "start_offset": 40141
+            }
+          }
+        ],
+        "review_exercise": false
+      },
+      {
+        "document": {
+          "accession": "0000002488-25-000012",
+          "acquired_at": "2026-09-30T18:47:28.389417Z",
+          "content_hash": "dbe41da197d54f77d5fe8b29155a6ea79d0063330c486c93cd4bdda526f0f3c0",
+          "filename": "amd-20241228.htm",
+          "form": "10-K",
+          "id": "95cb0aba-4154-5ff2-af90-7e2d504e6dae",
+          "issuer_id": "cf7d305b-2720-5d01-96a5-e8cdda0d79cd",
+          "publication_basis": "conservative_end_of_filing_date_ET",
+          "publication_precision": "date",
+          "published_at": "2025-02-06T04:59:59.999999Z",
+          "source": "sec",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm"
+        },
+        "text_version": {
+          "id": "ed9fcd42-8d3d-54c5-aaa8-789fbfe93388",
+          "parser_version": "html-blocks-v1",
+          "normalized_hash": "04cd711e9e99dbf6344fc6a350c37a958930ff9f17455b6d3553faaef44ef306"
+        },
+        "passage": {
+          "end_offset": 46552,
+          "id": "037fd74e-efa1-5665-b2e6-ff170b0d3e68",
+          "section_path": "ITEM 1. BUSINESS",
+          "start_offset": 46106,
+          "text_version_id": "ed9fcd42-8d3d-54c5-aaa8-789fbfe93388"
+        },
+        "text": "We utilize Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of wafers for our HPC, FPGA and Adaptive SoC products and GLOBALFOUNDRIES Inc. (GF), with respect to wafer purchases for our HPC products at the 12 nm and 14 nm technology nodes. Additionally, we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our ICs in the form of programmable logic devices.",
+        "text_hash": "b09bde1e4b8619e0fa37a2551f1cf64b6f561da619335d064e09d5670b0dd27e",
+        "reviews": [
+          {
+            "claim": {
+              "assertion_class": "normalized_explicit",
+              "claim_id": "1a28345e-09f5-519f-9a71-d387ce27216c",
+              "id": "4642b1b8-53fe-5f9f-88e1-301aa52fe7bf",
+              "object_id": "a9a75a0a-b60c-5e3f-9062-ab2604afce40",
+              "polarity": "positive",
+              "predicate": "CONTRACTS_MANUFACTURING_TO",
+              "review_state": "accepted",
+              "reviewer": "codex:historical-source-review",
+              "revision": 1,
+              "source_available_at": "2025-02-06T04:59:59.999999Z",
+              "subject_id": "cf7d305b-2720-5d01-96a5-e8cdda0d79cd",
+              "system_from": "2026-09-30T19:12:50.090388Z",
+              "system_to": null,
+              "valid_from": null,
+              "valid_to": null
+            },
+            "evidence": {
+              "assessment": "supported",
+              "claim_revision_id": "4642b1b8-53fe-5f9f-88e1-301aa52fe7bf",
+              "end_offset": 46372,
+              "id": "d24fe970-8811-5547-8304-196253ba3f8c",
+              "passage_id": "037fd74e-efa1-5665-b2e6-ff170b0d3e68",
+              "quote": "We utilize Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of wafers for our HPC, FPGA and Adaptive SoC products and GLOBALFOUNDRIES Inc. (GF), with respect to wafer purchases for our HPC products at the 12 nm and 14 nm technology nodes.",
+              "start_offset": 46106
+            }
+          },
+          {
+            "claim": {
+              "assertion_class": "normalized_explicit",
+              "claim_id": "5a948e51-b8cb-54a8-bd07-9f51a4365d0d",
+              "id": "775f35cc-d3e2-5b0e-a453-c2ec9e90e920",
+              "object_id": "4a5ec703-f4b5-5610-9481-60a037343e3a",
+              "polarity": "positive",
+              "predicate": "CONTRACTS_MANUFACTURING_TO",
+              "review_state": "accepted",
+              "reviewer": "codex:historical-source-review",
+              "revision": 1,
+              "source_available_at": "2025-02-06T04:59:59.999999Z",
+              "subject_id": "cf7d305b-2720-5d01-96a5-e8cdda0d79cd",
+              "system_from": "2026-09-30T19:12:50.095743Z",
+              "system_to": null,
+              "valid_from": null,
+              "valid_to": null
+            },
+            "evidence": {
+              "assessment": "supported",
+              "claim_revision_id": "775f35cc-d3e2-5b0e-a453-c2ec9e90e920",
+              "end_offset": 46552,
+              "id": "b47675b3-9f5e-58aa-a1de-206bf4bc272a",
+              "passage_id": "037fd74e-efa1-5665-b2e6-ff170b0d3e68",
+              "quote": "Additionally, we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our ICs in the form of programmable logic devices.",
+              "start_offset": 46373
+            }
+          }
+        ],
+        "review_exercise": false
+      },
+      {
+        "document": {
+          "accession": "0001730168-24-000139",
+          "acquired_at": "2026-09-30T18:47:33.378610Z",
+          "content_hash": "b5c0945420ccb30dc7b7a1f12c2cbf0bd3da2f1b6df780499e91b096172d8d9a",
+          "filename": "avgo-20241103.htm",
+          "form": "10-K",
+          "id": "08bfe8d3-5933-5fc0-83ab-64e639d0529c",
+          "issuer_id": "a37f5511-94b9-589d-beea-1575fdec2bff",
+          "publication_basis": "conservative_end_of_filing_date_ET",
+          "publication_precision": "date",
+          "published_at": "2024-12-21T04:59:59.999999Z",
+          "source": "sec",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016824000139/avgo-20241103.htm"
+        },
+        "text_version": {
+          "id": "2ef26a2d-2e30-500b-bc17-66fab6773686",
+          "parser_version": "html-blocks-v1",
+          "normalized_hash": "d58023250fc3cfbaacfa9ff0389f98e429f461b080f3c65a36408703e45d7af4"
+        },
+        "passage": {
+          "end_offset": 54135,
+          "id": "3fc13186-ffb9-521b-8f4c-a2823e3cf926",
+          "section_path": "ITEM 1.BUSINESS",
+          "start_offset": 52873,
+          "text_version_id": "2ef26a2d-2e30-500b-bc17-66fab6773686"
+        },
+        "text": "We focus on maintaining an efficient global supply chain and a variable, low-cost operating model. Accordingly, we outsource a majority of our manufacturing operations, utilizing third-party foundry and assembly and test capabilities, as well as some of our corporate infrastructure functions. The majority of our front-end wafer manufacturing operations is outsourced to external foundries, including Taiwan Semiconductor Manufacturing Company Limited (“TSMC”). We use third-party contract manufacturers for a significant majority of our assembly and test operations, including TSMC, Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd. We use our internal fabrication facilities for products utilizing our innovative and proprietary processes, such as our FBAR filters for wireless communications and our vertical-cavity surface emitting laser and side emitting lasers based on GaAs and InP lasers for fiber optic communications, while outsourcing commodity processes such as standard CMOS. By doing so, we can protect our IP and accelerate time to market for our products. The majority of our internal III-V semiconductor wafer fabrication is done in the U.S. and Singapore.",
+        "text_hash": "747934e4afba77a6f6a0fecad489cbb0f030dcadf8f5a890d3980f6e0122a14a",
+        "reviews": [
+          {
+            "claim": {
+              "assertion_class": "normalized_explicit",
+              "claim_id": "92ecb344-3909-5cc6-a47f-46435c1b4769",
+              "id": "00fdcaba-1aee-5166-9bf4-0a412697a802",
+              "object_id": "a9a75a0a-b60c-5e3f-9062-ab2604afce40",
+              "polarity": "positive",
+              "predicate": "CONTRACTS_MANUFACTURING_TO",
+              "review_state": "accepted",
+              "reviewer": "codex:historical-source-review",
+              "revision": 1,
+              "source_available_at": "2024-12-21T04:59:59.999999Z",
+              "subject_id": "a37f5511-94b9-589d-beea-1575fdec2bff",
+              "system_from": "2026-09-30T19:12:50.072971Z",
+              "system_to": null,
+              "valid_from": null,
+              "valid_to": null
+            },
+            "evidence": {
+              "assessment": "supported",
+              "claim_revision_id": "00fdcaba-1aee-5166-9bf4-0a412697a802",
+              "end_offset": 53335,
+              "id": "48a5f19d-906e-5574-a85d-2c060a8b4de7",
+              "passage_id": "3fc13186-ffb9-521b-8f4c-a2823e3cf926",
+              "quote": "The majority of our front-end wafer manufacturing operations is outsourced to external foundries, including Taiwan Semiconductor Manufacturing Company Limited (“TSMC”).",
+              "start_offset": 53167
+            }
+          }
+        ],
+        "review_exercise": false
+      },
+      {
+        "document": {
+          "accession": "0001045810-26-000021",
+          "acquired_at": "2026-09-30T15:22:53.701333Z",
+          "content_hash": "f1147c9e856aff1f91727c1ba69297c822a5ec0b276aba3376a5fe444a832139",
+          "filename": "nvda-20260125.htm",
+          "form": "10-K",
+          "id": "34fa3756-5947-51c9-9ba8-dcb85180f1b9",
+          "issuer_id": "563ca530-abd4-5d4b-86e3-da79b5c78ed7",
+          "publication_basis": "conservative_end_of_filing_date_ET",
+          "publication_precision": "date",
+          "published_at": "2026-02-26T04:59:59.999999Z",
+          "source": "sec",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm"
+        },
+        "text_version": {
+          "id": "de0f02eb-3352-59f5-8d89-e39aa12fec66",
+          "parser_version": "html-blocks-v1",
+          "normalized_hash": "29031306b3995e40353f4fda78a6d91407f8b05ad45d2ba0b39a0138ea6ed045"
+        },
+        "passage": {
+          "end_offset": 38724,
+          "id": "16bd23c8-93af-58f3-8a12-a518accbda0a",
+          "section_path": "Item 1. Business",
+          "start_offset": 37907,
+          "text_version_id": "de0f02eb-3352-59f5-8d89-e39aa12fec66"
+        },
+        "text": "We have expanded our supplier relationships to build redundancy and resilience in our operations to provide long-term manufacturing capacity aligned with growing customer demand. While currently our supply chain is mainly concentrated in Asia, we are expanding into the U.S. and Latin America. We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers. We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung. We utilize CoWoS technology for semiconductor packaging. We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products.",
+        "text_hash": "41b64cbc258bebd5f59c550265331184c565ccfce490f0191a6574ccf34749d6",
+        "reviews": [],
+        "review_exercise": true
+      }
+    ]
+  }
+}

@@ -14,7 +14,9 @@ python -m pip wheel --no-deps --wheel-dir dist .
 Run the dedicated native-service integration suite described in `CONTRIBUTING.md`.
 Install the wheel into a fresh environment, run `ontothread migrate`, `ontothread demo`, and
 `uvicorn fig.api:app --host 127.0.0.1 --port 8000` from an empty working directory.
-Verify packaged assets, health, synthetic evidence, and the browser acceptance workflow.
+Verify packaged assets, the bundled SEC snapshot, excerpt provenance, health, and
+the browser acceptance workflow. Both `ontothread demo` and the legacy `fig demo`
+load real SEC excerpts; `demo --synthetic` is the explicit test-only alternative.
 Check Docker Compose startup, seeding, projection, and persistence when Docker is available.
 Record completed checks and any unavailable environment checks in the release notes.
 

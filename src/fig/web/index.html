@@ -35,18 +35,19 @@
     <details id="getting-started" class="panel getting-started" open>
       <summary>Get started <span>Local setup, demo, and research workflow</span></summary>
       <div class="guide-grid">
-        <section><h2>1. Explore the offline demo</h2><p>In your activated Python environment, run:</p><pre><code>ontothread migrate
-ontothread demo</code></pre><p>With Docker, use <code>docker compose exec api ontothread demo</code>. Then select Refresh data. The demo contains fictional companies, a three-hop path, and two proposals to review. It needs no API key.</p></section>
+        <section><h2>1. Explore real SEC evidence</h2><p>In your activated Python environment, run:</p><pre><code>ontothread migrate
+ontothread demo</code></pre><p>With Docker, use <code>docker compose exec api ontothread demo</code>. Then select Refresh data. The demo loads real NVIDIA, AMD, and Broadcom filing excerpts, reviewed manufacturing relationships to TSMC and Samsung, and two source-backed proposals to review. It runs offline without an API key.</p></section>
         <section><h2>2. Bring SEC filings</h2><p>Set <code>SEC_USER_AGENT</code> in your local <code>.env</code> to your app name and real contact email, then run:</p><pre><code>ontothread ingest-sec --cik 1045810</code></pre><p>Refresh data after ingestion. Select a company, search its filing, extract candidates, and review their exact quotes before accepting a relationship.</p></section>
         <section><h2>3. Configure optional models</h2><p>Rule extraction works offline. To enable model extraction, set both <code>OPENAI_API_KEY</code> and <code>FIG_LLM_MODEL</code> in local configuration and restart the API.</p><p>Model calls require an explicit selection and may incur provider charges. Keep keys in server configuration.</p><a href="/docs">Explore the API contracts ↗</a><p>For a missing database, run <code>ontothread migrate</code> using the same configuration as the server, then retry the connection.</p></section>
       </div>
     </details>
     <div id="global-error" class="notice error" role="alert" hidden></div>
     <div id="corpus-notice" class="notice corpus-notice" role="status" hidden></div>
-    <div id="demo-notice" class="notice demo-notice" role="status" hidden>Synthetic demo included · Example companies and their relationships are fictional.</div>
+    <div id="demo-notice" class="notice demo-notice" role="status" hidden>Synthetic test fixtures included · Example companies and their relationships are fictional.</div>
+    <div id="sec-demo-notice" class="notice sec-demo-notice" role="status" hidden>Real SEC excerpt snapshot · Selected disclosures filed December 2024–February 2026. Source reviews are development reviews, not independent human annotations. This is historical evidence, not live company coverage.</div>
     <section class="controls" aria-label="Company selection">
       <div class="company-field"><label for="company">Company</label><select id="company" disabled><option>Loading companies…</option></select></div>
-      <label class="demo-toggle"><input id="include-demo" type="checkbox"> Include synthetic demo</label>
+      <label class="demo-toggle"><input id="include-demo" type="checkbox"> Include synthetic test fixtures</label>
       <button id="refresh" class="button secondary" type="button">↻ Refresh data</button>
     </section>
     <div class="stats" aria-label="Coverage summary">
@@ -57,7 +58,7 @@ ontothread demo</code></pre><p>With Docker, use <code>docker compose exec api on
     </div>
     <section id="research" tabindex="-1" class="panel ask-panel" aria-labelledby="ask-title">
       <div class="panel-heading"><div><div class="eyebrow">ASK ONTOTHREAD</div><h2 id="ask-title">Research with inspectable evidence</h2></div><span class="badge neutral">Controlled planner</span></div>
-      <form id="ask-form" class="ask-form"><label class="sr-only" for="ask-question">Research question</label><input id="ask-question" maxlength="1000" value="Which companies have second-order exposure to TSMC?" placeholder="Ask about a registered company or a path between two companies"><select id="ask-hops" aria-label="Maximum research hops"><option value="2">2 hops</option><option value="3" selected>3 hops</option></select><button id="ask-button" class="button primary" type="submit" disabled>Research</button></form>
+      <form id="ask-form" class="ask-form"><label class="sr-only" for="ask-question">Research question</label><input id="ask-question" maxlength="1000" value="Show paths between NVIDIA and Broadcom" placeholder="Ask about a registered company or a path between two companies"><select id="ask-hops" aria-label="Maximum research hops"><option value="2">2 hops</option><option value="3" selected>3 hops</option></select><button id="ask-button" class="button primary" type="submit" disabled>Research</button></form>
       <p id="ask-status" class="search-status" role="status">Answers use accepted claims and require supported evidence on every edge.</p>
       <div id="ask-results" class="ask-results"></div>
     </section>

@@ -23,7 +23,7 @@ fig = "fig.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-fig = ["resources/*.sql", "resources/*.yaml", "web/*.html", "web/*.css", "web/*.js"]
+fig = ["resources/*.sql", "resources/*.yaml", "resources/sec-demo-v1.json", "web/*.html", "web/*.css", "web/*.js"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

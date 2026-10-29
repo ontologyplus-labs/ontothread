@@ -30,10 +30,12 @@ CI creates disposable services, waits for both, and runs the native integration 
 
 ## Browser acceptance
 
-On a fresh demo installation, check the first-run guide and synthetic badge, ask
-for paths from Example Designer to Example Customer, find a three-hop path, open
-an exact quote, and search `manufacturing`. Extract proposals using `foundries`,
-accept one and reject the other with a reviewer identity, then inspect their history.
+On a fresh real demo, check the SEC excerpt badge, ask for paths between NVIDIA
+and Broadcom, find a three-hop route from NVIDIA to Samsung, open an exact quote,
+and search `manufacturing`. Inspect the original SEC link, filing date, excerpt scope,
+and original filing hash. Extract proposals using `foundries`; in the disposable
+workspace accept the TSMC proposal using the existing canonical company, and reject
+the Samsung proposal as a workflow exercise. Inspect both decision histories.
 Refresh and confirm the decisions persist. Check an empty database, an unmigrated
 database, missing optional model configuration, and a failed request with retry.
 
@@ -44,7 +46,8 @@ the relationship map may scroll within its own region.
 For automated browser acceptance, optionally install Node.js 22+, run `npm ci` and
 `npx playwright install chromium`, then `npm run test:browser` against a fresh
 running demo. Set `FIG_BASE_URL` to use a port other than 8000. This check accepts
-and rejects fictional proposals, so use a disposable demo database. Screenshots
+and rejects proposals from real source text, so use a disposable demo database.
+The rejection is a workflow exercise, not an assessment of the disclosed fact. Screenshots
 are written to ignored `test-results/`. Node is only needed for these checks.
 
 ## Contributions and releases

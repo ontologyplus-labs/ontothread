@@ -23,7 +23,7 @@ def test_demo_cli_is_offline_and_repeatable(tmp_path, monkeypatch, capsys):
     monkeypatch.setenv('FIG_ARCHIVE_DIR', 'archive')
     monkeypatch.setattr(sys, 'argv', ['fig', 'migrate'])
     main()
-    monkeypatch.setattr(sys, 'argv', ['fig', 'demo'])
+    monkeypatch.setattr(sys, 'argv', ['fig', 'demo', '--synthetic'])
     main(); main()
     capsys.readouterr()
     store = Store('sqlite:///demo.sqlite3')

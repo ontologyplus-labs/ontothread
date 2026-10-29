@@ -24,7 +24,10 @@ def main():
     parser.add_argument("--dataset",type=Path,default=Path("evaluation/nvidia-pilot.json"))
     parser.add_argument("--report",type=Path,help="Evaluation report JSON path")
     parser.add_argument("--limit",type=int,help="Maximum benchmark cases; default all")
+    parser.add_argument("--synthetic", action="store_true", help="Use the fictional test walkthrough instead of real SEC excerpts (demo only)")
     args = parser.parse_args()
+    if args.synthetic and args.command != "demo":
+        parser.error("--synthetic is only valid with demo")
     settings = Settings.from_env()
     store = Store(settings.database_url)
     if args.command == "migrate":
@@ -34,12 +37,16 @@ def main():
         bundle, original = fixture()
         print(json.dumps(store.ingest(bundle,original,settings.archive_dir),indent=2))
     elif args.command == "demo":
-        first = None
-        for bundle, original in demo_bundles():
-            store.ingest(bundle, original, settings.archive_dir)
-            if first is None:
-                first = bundle.claim.subject_id
-        print(json.dumps(store.neighbors(NeighborRequest(entity_id=first)),indent=2))
+        if args.synthetic:
+            first = None
+            for bundle, original in demo_bundles():
+                store.ingest(bundle, original, settings.archive_dir)
+                if first is None:
+                    first = bundle.claim.subject_id
+            print(json.dumps(store.neighbors(NeighborRequest(entity_id=first)),indent=2))
+        else:
+            from fig.demo import seed_real_demo
+            print(json.dumps(seed_real_demo(store, settings.archive_dir), indent=2))
     elif args.command=="ingest-facts":
         from fig.sec import SecClient,SecError
         client=None

@@ -24,8 +24,8 @@ it requires model credentials and can incur provider charges.
 ## Workflow
 
 1. Run `ontothread migrate` and `ontothread demo`, or ingest a bounded SEC filing set with the CLI.
-2. Refresh the workspace. Demo-only installations automatically display fictional
-   companies; once real companies exist, synthetic data is opt-in.
+2. Refresh the workspace. The default demo shows real NVIDIA, AMD, Broadcom, TSMC,
+   and Samsung records. Synthetic test fixtures require an explicit checkbox.
 3. Choose a company and explore accepted relationships or paths of one to three hops.
 4. Ask a supported question naming registered companies. The deterministic planner
    returns evidence, its bounded plan, and limitations; it is not an unrestricted chatbot.
@@ -35,9 +35,15 @@ it requires model credentials and can incur provider charges.
    or reject. Only acceptance adds an eligible claim to the graph.
 7. Run `ontothread project` after claim changes if you use Neo4j.
 
-`ontothread seed-fixture` retains the minimal original test fixture. `ontothread demo` seeds the
-richer fictional walkthrough with deterministic IDs and preserves existing decisions.
-Demo claims are reviewed by `synthetic-demo-author`, not a real analyst.
+`ontothread demo` seeds the real, offline SEC excerpt snapshot and preserves existing
+review decisions. Claims retain their original `codex:historical-source-review`
+attribution; they are development reviews, not independent human labels. Source
+metadata distinguishes excerpt bytes from the original complete filing and includes
+both hashes and original normalized-text offsets. See [real demo provenance](real-demo.md).
+
+`ontothread seed-fixture` retains the minimal original test fixture;
+`ontothread demo --synthetic` explicitly loads the fictional walkthrough. Previously
+seeded synthetic records are retained, but remain hidden unless opted in.
 
 ## Recovery
 

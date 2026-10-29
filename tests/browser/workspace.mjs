@@ -28,28 +28,37 @@ try{
     await new Promise(resolve=>setTimeout(resolve,500));
   }
   const ctx=await context();page=await ctx.newPage();await page.goto(base);await ready(page);
-  assert.equal(await page.locator('#include-demo').isChecked(),true);
-  await text(page,'#demo-notice','fictional');
-  assert.match(await page.locator('#company option:checked').textContent(),/Example Designer.*synthetic/);
+  assert.equal(await page.locator('#include-demo').isChecked(),false);
+  await text(page,'#sec-demo-notice','Real SEC excerpt snapshot');
+  assert.equal(await page.locator('#demo-notice').isVisible(),false);
+  assert.match(await page.locator('#company option:checked').textContent(),/NVIDIA CORP/);
+  assert.equal(await page.locator('#company option').count(),5);
+  await text(page,'#data-mode','SEC EXCERPT SNAPSHOT');
   assert.equal(await page.locator('#extraction-provider option[value="openai"]').isDisabled(),true);
   await page.locator('#getting-started summary').click();
-  await page.locator('#ask-button').click();await text(page,'#ask-status','3 source citations');
-  await text(page,'#ask-results','Example Customer');
-  const customer=await page.locator('#path-target option').filter({hasText:'Example Customer'}).getAttribute('value');
-  await page.locator('#path-target').selectOption(customer);await page.locator('#path-hops').selectOption('3');
-  await page.locator('#find-paths').click();await text(page,'#path-status','1 supported path');await text(page,'#path-results','3 HOPS');
+  await page.locator('#ask-button').click();await text(page,'#ask-status','2 source citations');
+  await text(page,'#ask-results','Broadcom');
+  const target=await page.locator('#path-target option').filter({hasText:'Samsung'}).getAttribute('value');
+  await page.locator('#path-target').selectOption(target);await page.locator('#path-hops').selectOption('3');
+  await page.locator('#find-paths').click();await text(page,'#path-results','3 HOPS');
   await page.locator('.path-results .path-edge').first().click();await text(page,'#evidence-content','Exact source quote');await page.locator('#evidence-content mark').waitFor();
+  await text(page,'#evidence-content','Selected excerpt only');
+  assert.match(await page.getByRole('link',{name:'Open source filing ↗'}).getAttribute('href'),/^https:\/\/www\.sec\.gov\/Archives\//);
   await page.locator('#query').fill('manufacturing');await page.locator('#search-button').click();await text(page,'#search-status','1 passage');
   await page.locator('#search-results button').first().click();await text(page,'#evidence-title','Source passage');
   await page.locator('#query').fill('missing-phrase-zzzzz');await page.locator('#search-button').click();await text(page,'#search-status','No passages match');
   await page.getByRole('link',{name:'Review candidates',exact:true}).click();
   await page.locator('#extract-candidates').click();await text(page,'#review-status','2 proposals');
-  for(const [name,action,message] of [['Example Fabrication Limited','Accept relationship','Relationship accepted'],['Example Assembly Limited','Reject candidate','Candidate rejected']]){
+  for(const [name,action,message] of [['Taiwan Semiconductor Manufacturing Company Limited','Accept relationship','Relationship accepted'],['Samsung Electronics Co., Ltd.','Reject candidate','Candidate rejected']]){
     await page.locator('.candidate-card').filter({hasText:name}).click();
-    await page.locator('#reviewer-name').fill('synthetic-browser-check');
+    await page.locator('#reviewer-name').fill('demo-browser-check');
+    await page.locator('#review-notes').fill('Disposable demo workflow exercise, not a new independent source assessment.');
+    if(action==='Accept relationship'){
+      await page.locator('#resolved-company').selectOption({label:'TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD'});
+    }
     await page.getByRole('button',{name:action,exact:true}).click();await text(page,'#review-status',message);
   }
-  await page.locator('.candidate-card').filter({hasText:'Example Fabrication Limited'}).click();await text(page,'#evidence-content','Accepted by synthetic-browser-check');
+  await page.locator('.candidate-card').filter({hasText:'Taiwan Semiconductor Manufacturing Company Limited'}).click();await text(page,'#evidence-content','Accepted by demo-browser-check');
   await page.reload();await ready(page);await text(page,'#candidate-list','accepted');await text(page,'#candidate-list','rejected');
   // Section links and graph evidence must work from the keyboard.
   await page.getByRole('link',{name:'Relationships',exact:true}).focus();await page.keyboard.press('Enter');

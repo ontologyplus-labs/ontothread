@@ -5,6 +5,9 @@ network requests or model calls. It contains five real companies, four selected
 filing passages, five development-reviewed manufacturing claims, and two rule-based
 proposals from a later filing that still require an explicit user decision.
 
+The separate [TSMC ontology case study](tsmc-ontology-case-study.md) shows how an
+accepted change created `finance-v3`. That research case is outside this demo snapshot.
+
 | Issuer | Filing | Filed | Included use |
 | --- | --- | --- | --- |
 | NVIDIA | [2025 10-K](https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm) | February 26, 2025 | Reviewed manufacturing claims to TSMC and Samsung |

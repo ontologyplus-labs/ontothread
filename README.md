@@ -6,6 +6,9 @@ OntoThread turns SEC filings into reviewed relationships and evolving knowledge
 graphs. Researchers can explore connections, inspect exact source evidence, and
 trace how claims and ontologies change over time.
 
+[Read the TSMC case study](docs/tsmc-ontology-case-study.md) for a real example of
+how a filing led to a new relationship type and a query the graph could answer.
+
 ## What OntoThread does
 
 - Archive source documents and retain immutable text, passages, and exact quotes.

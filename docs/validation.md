@@ -74,3 +74,18 @@ above records the previous release behavior.
 The existing Starlette/httpx warning and Docker/Python 3.13/CI execution limitations
 above still apply. The snapshot is historical, excerpt-only, and source-reviewed
 by Codex during development; it is not an independent human annotation dataset.
+
+## Release dependency and wheel checks — November 15, 2026
+
+- The updated lockfile installed in a fresh environment and resolved to wheels for
+  Linux x86-64. PyPI returned no active published advisories for the 33 locked
+  versions or the selected pip version at the time of this check.
+- The official Compose CLI validated the configuration, and the public registry
+  confirmed Linux amd64 and arm64 images for all three updated tags. Docker was
+  unavailable on this host, so the stack was not started here. CI now builds and
+  starts the stack on Linux, seeds the SEC demo, and checks that Neo4j receives
+  all five relationships.
+- The installed wheel preserved `LICENSE` and `DATA_NOTICE.md` byte-for-byte
+  alongside the SEC snapshot. Both CLI aliases, migrations, health, and the UI
+  passed in a separate workspace. All **240 non-integration tests** and the full
+  Chromium acceptance workflow passed; the browser made no external requests.

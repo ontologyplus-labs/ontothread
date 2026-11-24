@@ -21,10 +21,12 @@
   Questions, three-hop paths, exact quotes, search, accept/reject persistence,
   keyboard navigation, 390 px layout, configuration errors, and request recovery
   passed. The browser attempted no external requests.
-- Hosted Linux checks for Python 3.12/3.13, the nine isolated PostgreSQL/Neo4j
-  tests, Docker Compose, and browser acceptance are pending the private
-  `ontologyplus-labs/ontothread` CI run. Results will be attached to the reviewed
-  release commit before public publication.
+- [Hosted Linux validation](https://github.com/ontologyplus-labs/ontothread/actions/runs/45305518290)
+  passed on preparation commit `f052a592568215aab4ff4050f8ee77c5eabe0673`.
+  All five jobs succeeded, covering Python 3.12/3.13 unit and wheel checks,
+  the nine isolated PostgreSQL/Neo4j tests, Docker Compose startup/seeding/
+  projection, and offline browser acceptance. CI retains the validated wheels.
+  The link requires repository access while release approval is pending.
 
 ## Original platform validation
 

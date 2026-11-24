@@ -1,7 +1,8 @@
 # Releasing OntoThread
 
 The repository and Python distribution are named `ontothread`.
-The local Git repository uses branch `main`. No GitHub remote is configured by default.
+The GitHub destination is `ontologyplus-labs/ontothread`, presented as
+**OntoThread by OntologyPlus**. The local Git repository uses branch `main`.
 Use a clean checkout and Python 3.12+:
 
 ```sh
@@ -28,7 +29,17 @@ and build a tracked-source archive (never archive the whole working directory):
 git archive --format=zip --prefix=ontothread/ --output=dist/ontothread-source.zip HEAD
 ```
 
-Only after the destination owner and repository are known, create the GitHub repository,
-add its URL as `origin`, push `main`, and publish the validated artifacts. Select MIT
-when configuring the public project. Do not add personal data, API keys, source archives,
-or reviewer returns to Git history. This source release is not a hosted service.
+Create the repository privately under `ontologyplus-labs` and push the reviewed
+history to `https://github.com/ontologyplus-labs/ontothread.git`. Review every
+existing commit as well as the release tree for private material. Run the existing
+Linux workflow, including both Python versions, database integration, Compose,
+and browser acceptance. Record results for the exact reviewed commit.
+
+Present that commit and [the release notes](releases/v0.1.0.md) for release approval.
+After approval, make the repository public, tag that commit `v0.1.0`, and publish
+the wheel and tracked-source archive. Verify the public clone and offline demo.
+The existing MIT license and data notice ship with both artifacts. Keep personal
+data, API keys, full filing archives, and reviewer returns outside Git history.
+
+Prepare the Substack repository link and LinkedIn follow-up for separate review.
+The README links back to the published research essay.

@@ -15,6 +15,12 @@ dependencies = ["fastapi==0.142.2", "uvicorn==0.54.0", "pydantic==2.13.5", "psyc
 [project.optional-dependencies]
 dev = ["pytest==9.1.1", "httpx==0.28.1"]
 
+[project.urls]
+Repository = "https://github.com/ontologyplus-labs/ontothread"
+Documentation = "https://github.com/ontologyplus-labs/ontothread#readme"
+Issues = "https://github.com/ontologyplus-labs/ontothread/issues"
+Research = "https://ontologyplus.substack.com/p/the-companies-behind-the-companies"
+
 [project.scripts]
 ontothread = "fig.cli:main"
 fig = "fig.cli:main"

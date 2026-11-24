@@ -1,5 +1,33 @@
 # Local release validation
 
+## OntologyPlus organization release preparation — November 23, 2026
+
+- The five preparation commits and 216 unique Git blobs passed a history audit
+  for forbidden file paths, machine-specific home paths, private-key blocks,
+  and recognized provider, GitHub, AWS, and Slack credential patterns.
+- The 182 tracked inputs passed the existing release audit. The retained research
+  templates have blank reviewer decision, relationship, identity, timing,
+  confidence, and notes fields. Regression tests reference these fixtures.
+- All **240 non-integration tests passed**. The existing Starlette/httpx
+  deprecation warning remains.
+- A newly built v0.1.0 wheel installed with its declared dependencies into a fresh
+  Python 3.12 environment. From an empty working directory it ran migrations,
+  both demo CLI aliases, health, API explorer, and all three browser assets.
+  Ten migrations, the finance ontology, the real SEC snapshot, repository URLs,
+  and byte-identical license/data notices were verified in the installation.
+- With socket connections blocked, demo reseeding remained repeatable and the
+  NVIDIA–Broadcom research answer returned one path and two source citations.
+- The existing Chromium acceptance suite passed against this installed wheel.
+  Questions, three-hop paths, exact quotes, search, accept/reject persistence,
+  keyboard navigation, 390 px layout, configuration errors, and request recovery
+  passed. The browser attempted no external requests.
+- Hosted Linux checks for Python 3.12/3.13, the nine isolated PostgreSQL/Neo4j
+  tests, Docker Compose, and browser acceptance are pending the private
+  `ontologyplus-labs/ontothread` CI run. Results will be attached to the reviewed
+  release commit before public publication.
+
+## Original platform validation
+
 Validated October 27, 2026 on macOS with CPython 3.12.14 and Chromium 151.
 
 - Fresh `pip install -e ".[dev]"` succeeded in a new virtual environment.

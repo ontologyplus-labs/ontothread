@@ -6,6 +6,9 @@ OntoThread turns SEC filings into reviewed relationships and evolving knowledge
 graphs. Researchers can explore connections, inspect exact source evidence, and
 trace how claims and ontologies change over time.
 
+[Read the research essay](https://ontologyplus.substack.com/p/the-companies-behind-the-companies)
+for the investing question, the shared-foundry example, and the design behind OntoThread.
+
 [Read the TSMC case study](docs/tsmc-ontology-case-study.md) for a real example of
 how a filing led to a new relationship type and a query the graph could answer.
 
@@ -21,6 +24,13 @@ Disclosed relationships do not establish financial materiality. OntologyPlus is 
 umbrella brand; OntoThread is this product and repository.
 
 ## Quick start
+
+Clone the repository, then choose either setup below.
+
+```sh
+git clone https://github.com/ontologyplus-labs/ontothread.git
+cd ontothread
+```
 
 ### Python and SQLite
 
@@ -118,6 +128,19 @@ Versioned finance ontologies define allowed entity and relationship types. Evide
 proposals, review decisions, schema versions, and selective reprocessing retain an audit
 history. Historical identity, knowledge, and validity cutoffs preserve earlier views.
 The [architecture guide](docs/architecture.md) describes the underlying contracts.
+
+## Keeping relationships current
+
+Use the CLI to ingest successive filings, compare their passages in the browser,
+and review candidates against their exact source quotes. Relationship histories
+and recorded correction, supersession, retraction, and conflict decisions retain
+the evidence and review timeline. API queries support publication, knowledge,
+effective-date, and identity cutoffs.
+
+Scheduled filing monitoring and automatic flags for omitted disclosures are planned
+extensions. The current workflow starts with CLI ingestion and explicit review.
+Silence in a later filing leaves the last supported disclosure in the record;
+establishing an end date requires supporting evidence.
 
 ## CLI, Python library, and API
 
